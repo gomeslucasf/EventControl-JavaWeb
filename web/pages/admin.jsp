@@ -49,9 +49,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
-            width: 1368px;
+            width: 100%;
             height: 100%;
             text-align: center;
+          }
+          .bg-white-panel{
+              background-color: rgba(255,255,255, 0.3);
           }
         </style>
     </head>
@@ -63,13 +66,18 @@
                     <div class="col-md-12 ">
                         <div class="row justify-content-md-center">
                             <div class="col-md-6 ">
-                                <div class="panel bg-white" >
+                                <div class="panel bg-white-panel" >
                                     <div class="panel-heading p-3">
                                         <h1> Painel do Administrador</h1>
                                         
                                     </div>
                                     <div class="panel-body">
-                                        body
+                                        <form>
+                                            
+                                        </form>
+                                        <a href="index.html">
+                                            Home...
+                                        </a>
                                     </div>
                                 </div>
                             </div>

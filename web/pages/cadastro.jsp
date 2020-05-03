@@ -16,12 +16,82 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-    </head >
-    <body style="background: url('https://cdn.pixabay.com/photo/2017/12/16/15/42/wolf-3022813_960_720.jpg') no-repeat center center fixed;  -webkit-background-size: cover;
+        <style>
+            body, html {
+                height: 100%;
+              }
+
+              * {
+                box-sizing: border-box;
+              }
+
+            .bg-image {
+                background-image: url("./img/man-wearing-gray-dress-shirt-and-blue-jeans-3184317.jpg");
+
+                filter: blur(8px);
+                -webkit-filter: blur(8px);
+
+
+                height: 100%;
+
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+
+
+            .bg-text {
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0, 0.4);
+                color: black;
+                font-weight: bold;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+              }
+              .bg-white-panel{
+                  background-color: rgba(255,255,255, 0.3);
+              }
+        </style>
+    </head>
+    <body >
+        <div class="bg-image"></div>
+        <div class="bg-text">
+            <div class="container p-3">
+                <div class="row p-3">
+                    <div class="col-md-12 ">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-6 ">
+                                <div class="panel bg-white-panel" >
+                                    <div class="panel-heading p-3">
+                                        <h1> Cadastro do Convidado</h1>
+                                        
+                                    </div>
+                                    <div class="panel-body">
+                                        <form>
+                                            
+                                        </form>
+                                        <a href="index.html">
+                                            Home...
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!--  style="background: url('./img/man-wearing-gray-dress-shirt-and-blue-jeans-3184317.jpg') no-repeat center center fixed;  -webkit-background-size: cover;
                 -moz-background-size: cover;
                 background-size: cover;
-                -o-background-size: cover;">
-        <h1 class="text-white">Iniciar Cadastro</h1>
+                -o-background-size: cover;
+                " -->
     </body>
 </html>
