@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package br.unoeste.fipp.lp3.servlet;
+package com.eventcontrol.controller.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Gomes
+ * @author ferii
  */
-@WebServlet(name = "cadastro", urlPatterns = {"/cadastro"})
-public class cadastro extends HttpServlet {
+@WebServlet(name = "CadastroServlet", urlPatterns = {"/login/cadastro"})
+public class CadastroServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,9 +26,8 @@ public class cadastro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-       RequestDispatcher rd = request.getRequestDispatcher("pages/cadastro.jsp");
-        rd.forward(request, response);
+        
+        request.getRequestDispatcher("/pages/cadastro.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
