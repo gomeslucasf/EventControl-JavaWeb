@@ -75,7 +75,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group text-justify">
                                                       <label for="adminTxtLogin">Login</label>
-                                                      <input type="text" class="form-control" id="adminTxtLogin" aria-describedby="adminTxtLogin">
+                                                      <input type="text" name="a_login" class="form-control" id="adminTxtLogin" aria-describedby="adminTxtLogin">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
@@ -85,7 +85,7 @@
                                                                 <i><img src="/eventos/img/eye_icon-icons.com_71204.ico" height="20" width="20" alt="Mostrar Senha" title="Mostrar Senha" /></i>
                                                             </div>
                                                       </label>
-                                                      <input type="password" class="form-control" id="adminTxtSenha">
+                                                      <input type="password" name="a_password" class="form-control" id="adminTxtSenha">
                                                     </div> 
                                                 </div>
                                                 <div class="col-md-12">
@@ -94,7 +94,7 @@
                                                       <label class="form-check-label" for="adminCheckConectado">Me mantenha conectado</label>
                                                     </div>
                                                 </div>
-                                                    <button id="adminBtnAcessar" type="submit" class="btn btn-success">Acessar</button>
+                                                    <button id="adminBtnAcessar" name="bSubmit" type="submit" class="btn btn-success">Acessar</button>
                                                 
                                             </form>
                                         </div>
