@@ -9,13 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="shortcut icon" href="./img/favicon-32x32.png" />
+        <link rel="shortcut icon" href="/eventos/img/favicon-32x32.png" />
         <title>FIPP - Infoeste 2020 - Login</title>
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+         <link rel="stylesheet" href="/eventos/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/eventos/css/theme.min.css">
         <style>
             body, html {
                 height: 100%;
@@ -26,7 +23,7 @@
               }
 
             .bg-image {
-                background-image: url("./img/man-wearing-gray-dress-shirt-and-blue-jeans-3184317.jpg");
+                background-image:url("/eventos/img/man-wearing-gray-dress-shirt-and-blue-jeans-3184317.jpg");
 
                 filter: blur(8px);
                 -webkit-filter: blur(8px);
@@ -63,20 +60,45 @@
         <div class="bg-image"></div>
         <div class="bg-text">
             <div class="container p-3">
-                <div class="row p-3">
-                    <div class="col-md-12 ">
+                <div class="row ">
+                    <div class="col">
                         <div class="row justify-content-md-center">
-                            <div class="col-md-6 ">
-                                <div class="panel bg-white-panel" >
+                            <div class="col-md-6 align-items-center">
+                                <div class="panel bg-white-panel p-3" >
                                     <div class="panel-heading p-3">
-                                        <h1> Login do Convidado</h1>
-                                        
+                                        <img src="/eventos/img/logo-fipp-440x172.png"/>  
+                                        <h1>Acesse sua conta</h1>
                                     </div>
                                     <div class="panel-body">
-                                        <form>
-                                            
-                                        </form>
-                                        <a href="index.html">
+                                        <div class="row justify-content-md-center">
+                                            <form action="/eventos/login">
+                                                <div class="col-md-12">
+                                                    <div class="form-group text-justify">
+                                                      <label class="" for="loginTxtLogin">Login</label>
+                                                      <input type="text" class="form-control" id="loginTxtLogin" aria-describedby="login">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group text-justify">
+                                                      <label for="loginTxtSenha">Senha
+                                                            <div class="btn" type="button" id="loginBtnMostrar">
+                                                                <i><img src="/eventos/img/eye_icon-icons.com_71204.ico" height="20" width="20" alt="Mostrar Senha" title="Mostrar Senha" /></i>
+                                                            </div>
+                                                      </label>
+                                                      <input type="password" class="form-control" id="loginTxtSenha">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group text-justify form-check">
+                                                      <input type="checkbox" class="form-check-input" id="loginCheckConectado">
+                                                      <label class="form-check-label" for="loginCheckConectado ">Me mantenha conectado</label>
+                                                    </div>
+                                                </div>
+                                                    <button id="loginBtnAcessar" type="submit" class="btn btn-success">Acessar</button>
+                                                
+                                            </form>
+                                        </div>
+                                        <a href="/eventos">
                                             Home...
                                         </a>
                                     </div>
@@ -86,12 +108,25 @@
                     </div>
                 </div>
             </div>
-            
         </div>
-        <!--  style="background: url('./img/man-wearing-gray-dress-shirt-and-blue-jeans-3184317.jpg') no-repeat center center fixed;  -webkit-background-size: cover;
-                -moz-background-size: cover;
-                background-size: cover;
-                -o-background-size: cover;
-                " -->
+        <script src="/eventos/js/bootstrap.min.js"></script>
+        <script src="/eventos/js/jquery-3.4.1.slim.min.js"></script>
+        <script src="/eventos/js/popper.min.js"> </script> 
+        <script>
+          $(document).ready(function(){
+              $('#loginBtnMostrar').on('click', function(){
+                var passwordField = $('#loginTxtSenha');
+                var passwordFieldType = passwordField.attr('type');
+                if(passwordFieldType == 'password')
+                {
+                    passwordField.attr('type', 'text');
+                    $(this).val('Hide');
+                } else {
+                    passwordField.attr('type', 'password');
+                    $(this).val('Show');
+                }
+              });
+          });
+        </script>
     </body>
 </html>

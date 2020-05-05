@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="shortcut icon" href="img/favicon-32x32.png" />
+        <link rel="shortcut icon" href="/eventos/img/favicon-32x32.png" />
         <title>FIPP - Infoeste 2020</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/eventos/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="/eventos/css/theme.min.css"/>
+        <link rel="stylesheet" href="/eventos/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/eventos/css/theme.min.css">
         <style>
             .header{
                 border-top: #228B22;
@@ -48,8 +48,6 @@
         </div>
       </div>
     </div>
-    <!-- about section -->     
-    
     
     
     <script src="/eventos/js/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
