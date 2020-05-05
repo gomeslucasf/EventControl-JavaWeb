@@ -7,37 +7,37 @@ import java.util.Objects;
 public class Aluno implements Serializable {
     private int codigo, end_numero;
     private String nome, email, senha, endereco, complemento, cep, cpf;
-    private Date data_nasc;
-    private Cidade cidade;
+    private String data_nasc;
+    private int cidade;
 
     public Aluno() {
     }
 
-    public Aluno(int end_numero, String nome, String email, String senha, String endereco, String complemento, String cep, String cpf, Date data_nasc, Cidade cidade) {
-        this.end_numero = end_numero;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.endereco = endereco;
-        this.complemento = complemento;
-        this.cep = cep;
-        this.cpf = cpf;
-        this.data_nasc = data_nasc;
-        this.cidade = cidade;
+    public Aluno(int end_numero, String nome, String email, String senha, String endereco, String complemento, String cep, String cpf, String data_nasc, int cidade) {
+        this.setEnd_numero(end_numero);
+        this.setNome(nome);
+        this.setEmail(email);
+        this.setSenha(senha);
+        this.setEndereco(endereco);
+        this.setComplemento(complemento);
+        this.setCep(cep);
+        this.setCpf(cpf);
+        this.setData_nasc(data_nasc);
+        this.setCidade(cidade);
     }
 
-    public Aluno(int codigo, int end_numero, String nome, String email, String senha, String endereco, String complemento, String cep, String cpf, Date data_nasc, Cidade cidade) {
-        this.codigo = codigo;
-        this.end_numero = end_numero;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.endereco = endereco;
-        this.complemento = complemento;
-        this.cep = cep;
-        this.cpf = cpf;
-        this.data_nasc = data_nasc;
-        this.cidade = cidade;
+    public Aluno(int codigo, int end_numero, String nome, String email, String senha, String endereco, String complemento, String cep, String cpf, String data_nasc, int cidade) {
+        this.setCodigo(codigo);
+        this.setEnd_numero(end_numero);
+        this.setNome(nome);
+        this.setEmail(email);
+        this.setSenha(senha);
+        this.setEndereco(endereco);
+        this.setComplemento(complemento);
+        this.setCep(cep);
+        this.setCpf(cpf);
+        this.setData_nasc(data_nasc);
+        this.setCidade(cidade);
     }
 
     public int getCodigo() {
@@ -118,20 +118,20 @@ public class Aluno implements Serializable {
         this.cpf = cpf;
     }
 
-    public Date getData_nasc() {
+    public String getData_nasc() {
         return data_nasc;
     }
 
-    public void setData_nasc(Date data_nasc) {
+    public void setData_nasc(String data_nasc) {
         this.data_nasc = data_nasc;
     }
 
-    public Cidade getCidade() {
+    public int getCidade() {
         return cidade;
     }
 
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
+    public void setCidade(int cod_cidade) {
+        this.cidade = cod_cidade;
     }
 
     @Override

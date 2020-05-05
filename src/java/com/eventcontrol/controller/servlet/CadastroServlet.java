@@ -1,5 +1,7 @@
 package com.eventcontrol.controller.servlet;
 
+import com.eventcontrol.model.Aluno;
+import com.eventcontroller.dal.AlunoDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -27,6 +29,30 @@ public class CadastroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String bSubmit = (String)request.getParameter("bSubmit");
+        String erro = "";
+        
+        if(bSubmit != null && !bSubmit.isEmpty())
+        {
+            String u_email = (String)request.getParameter("u_email");
+            String u_passwd = (String)request.getParameter("u_password");
+            
+            AlunoDAL adal = new AlunoDAL();
+            Aluno usuario = adal.getByEmail(u_email);
+            
+            if(usuario != null)
+            {
+                erro = "Usuario existente";
+            } else {
+                Aluno novo = new Aluno();
+                novo.setEmail(u_email);
+                novo.setSenha(u_passwd);
+                
+                adal.inserir(novo);
+            }
+        }
+        
+        request.setAttribute("erro", erro);
         request.getRequestDispatcher("/pages/cadastro.jsp").forward(request, response);
     }
 

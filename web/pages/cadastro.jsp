@@ -75,13 +75,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group text-justify">
                                                       <label class="" for="cadastroTxtEmail">Email</label>
-                                                      <input type="text" class="form-control" id="cadastroTxtEmail" aria-describedby="cadastroTxtEmail" placeholder="exemplo@exemplo.com">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group text-justify">
-                                                      <label class="" for="cadastroTxtLogin">Login</label>
-                                                      <input type="text" class="form-control" id="cadastroTxtLogin" aria-describedby="cadastroTxtLogin" placeholder="Apelido">
+                                                      <input type="text" class="form-control" id="cadastroTxtEmail" name="u_email" aria-describedby="cadastroTxtEmail" placeholder="exemplo@exemplo.com">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
@@ -91,10 +85,10 @@
                                                                 <i><img src="/eventos/img/eye_icon-icons.com_71204.ico" height="20" width="20" alt="Mostrar Senha" title="Mostrar Senha" /></i>
                                                             </div>
                                                         </label>
-                                                        <input type="password" class="form-control" id="cadastroTxtSenha">
+                                                        <input type="password" class="form-control" name="u_password" id="cadastroTxtSenha">
                                                     </div>                                                   
                                                 </div>
-                                                <button id="cadastroBtnCadastrar" type="submit" class="btn btn-success">Cadastrar</button>
+                                                <button id="cadastroBtnCadastrar" type="submit" name="bSubmit" class="btn btn-success">Cadastrar</button>
                                             </form>
                                         </div>
                                         <a href="/eventos">

@@ -21,7 +21,7 @@ public class Conexao {
     private static final String USUARIO = "postgres";
     private static final String SENHA = "postgres123";
     
-    public static Connection abre() {
+    public static Connection abrir() {
         try {
             Class.forName("org.postgresql.Driver");
             return DriverManager.getConnection(Conexao.URL, Conexao.USUARIO, Conexao.SENHA);
