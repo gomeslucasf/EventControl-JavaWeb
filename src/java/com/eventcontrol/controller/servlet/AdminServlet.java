@@ -5,6 +5,8 @@
  */
 package com.eventcontrol.controller.servlet;
 
+import com.eventcontrol.model.Admin;
+import com.eventcontroller.dal.AdminDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -37,18 +39,18 @@ public class AdminServlet extends HttpServlet {
         
         if(bSubmit != null && !bSubmit.isEmpty())
         {
-            String u_email = (String)request.getParameter("u_email");
+            String u_login = (String)request.getParameter("u_login");
             String u_passwd = (String)request.getParameter("u_password");
             
             AdminDAL adal = new AdminDAL();
-            Admin usuario = adal.getByEmail(u_email);
+            Admin usuario = adal.getByLogin(u_login);
             
             if(usuario != null)
             {
                 erro = "Usuario existente";
             } else {
                 Admin novo = new Admin();
-                novo.setLogin(u_email);
+                novo.setLogin(u_login);
                 novo.setSenha(u_passwd);
                 
                 adal.inserir(novo);

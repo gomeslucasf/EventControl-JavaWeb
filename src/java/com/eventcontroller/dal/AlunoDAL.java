@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AlunoDAL {
+    
     public AlunoDAL()
     {
         
@@ -55,7 +56,7 @@ public class AlunoDAL {
     
     public void inserir(Aluno novo)
             throws DAOException {
-        String sql = "insert into uf (alu_email, alu_senha) values ('" + novo.getEmail() + "', '" + novo.getSenha() + "')";
+        String sql = "insert into aluno (alu_email, alu_senha) values ('" + novo.getEmail() + "', '" + novo.getSenha() + "')";
         try (Connection conn = Conexao.abrir()) {
             try (Statement st = conn.createStatement()) {
                 st.execute(sql);
