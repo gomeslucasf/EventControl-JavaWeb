@@ -78,6 +78,12 @@
                                                       <input type="text" class="form-control" id="cadastroTxtEmail" name="u_email" aria-describedby="cadastroTxtEmail" placeholder="exemplo@exemplo.com">
                                                     </div>
                                                 </div>
+                                                 <div class="col-md-12">
+                                                    <div class="form-group text-justify">
+                                                      <label class="" for="cadastroTxtLogin">Login</label>
+                                                      <input type="text" class="form-control" id="cadastroTxtLogin" name="u_login" aria-describedby="cadastroTxtLogin" placeholder="apelido">
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group text-justify">
                                                         <label for="cadastroTxtSenha">Senha

@@ -13,6 +13,10 @@ public class Admin implements Serializable {
         this.senha = senha;
     }
 
+    public Admin() {
+    }
+    
+
     public int getCodigo() {
         return codigo;
     }
