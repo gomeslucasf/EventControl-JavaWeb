@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+    postgres:
+        image: postgres:12
+        environment: 
+            POSTGRES_PASSWORD: "postgres"
+        ports:
+            - 5432:5432
+        volumes:
+            - postgres:/var/lib/postgresql/data/
+            - ./postgresql/conf:/etc/postgresql/
+        networks:
+            - postgres-network
+    
+    pgadmin:
+        image: dpage/pgadmin4
+        environment: 
+            PGADMIN_DEFAULT_EMAIL: "pg@admin.com"
+            PGADMIN_DEFAULT_PASSWORD: "postgres"
+        ports:
+            - "8080:80"
+        depends_on:
+            - postgres
+        networks:
+            - postgres-network
+
+volumes:
+    postgres:
+
+networks: 
+    postgres-network:
+        driver: bridge

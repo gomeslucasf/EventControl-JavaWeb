@@ -5,8 +5,6 @@
  */
 package com.eventcontrol.controller.servlet;
 
-import com.eventcontrol.model.Admin;
-import com.eventcontroller.dal.AdminDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferii
  */
-@WebServlet(name = "AdminServlet", urlPatterns = {"/admin"})
-public class AdminServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout"})
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,33 +32,8 @@ public class AdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String bSubmit = (String)request.getParameter("bSubmit");
-        String erro = "";
-        
-        if(bSubmit != null && !bSubmit.isEmpty())
-        {
-            String u_login = (String)request.getParameter("u_login");
-            String u_passwd = (String)request.getParameter("u_password");
-            
-            AdminDAL adal = new AdminDAL();
-            Admin usuario = adal.getByLogin(u_login);
-            
-            if(usuario != null)
-            {
-                if(usuario.getSenha().equals(u_passwd))
-                {
-                    request.getSession().setAttribute("ADMIN", usuario);
-                    request.getRequestDispatcher("/admin/index").forward(request, response);
-                } else {
-                    erro = "Senha inválida";
-                }
-            } else {
-                erro = "Usuário inválido";
-            }
-        }
-        
-        request.setAttribute("erro", erro);
-        request.getRequestDispatcher("/pages/login/admin.jsp").forward(request, response);
+        request.getSession().invalidate();
+        response.sendRedirect("/eventos/");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

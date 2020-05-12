@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="panel-body">
                                         <div class="row justify-content-md-center">
-                                            <form action="/eventos/login">
+                                            <form action="/eventos/login" method="post">
                                                 <div class="col-md-12">
                                                     <div class="form-group text-justify">
                                                       <label class="" for="loginTxtLogin">Email</label>
@@ -94,7 +94,7 @@
                                                       <label class="form-check-label" for="loginCheckConectado ">Me mantenha conectado</label>
                                                     </div>
                                                 </div>
-                                                    <button id="loginBtnAcessar" type="submit" name="bSubmit" class="btn btn-success">Acessar</button>
+                                                    <button id="loginBtnAcessar" type="submit" name="bSubmit" value="Acessar" class="btn btn-success">Acessar</button>
                                                 
                                             </form>
                                         </div>
