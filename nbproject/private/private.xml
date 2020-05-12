@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/AdminServlet.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/IndexServlet.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/LoginServlet.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/LogoutServlet.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/web/pages/admin/index.jsp</file>
-            <file>file:/Y:/EventControl-JavaWeb/web/pages/home.jsp</file>
+            <file>file:/D:/Faculdade%205T/LP/EventControl-JavaWeb/src/java/com/eventcontrol/persistencia/DAOException.java</file>
+            <file>file:/D:/Faculdade%205T/LP/EventControl-JavaWeb/web/pages/admin/cadastroEvento.jsp</file>
+            <file>file:/D:/Faculdade%205T/LP/EventControl-JavaWeb/src/java/com/eventcontrol/persistencia/Conexao.java</file>
+            <file>file:/D:/Faculdade%205T/LP/EventControl-JavaWeb/web/pages/template/templateAdministrador.jsp</file>
         </group>
     </open-files>
 </project-private>
