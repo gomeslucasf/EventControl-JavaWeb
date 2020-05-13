@@ -23,7 +23,7 @@
       <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <a class="navbar-brand p-3" href="/eventos/">
+                <a class="navbar-brand p-3" href="/eventos">
                     <img src="/eventos/img/logoUnoesteBranco.png" width="200" height="44"/>
                 </a>
             </div>

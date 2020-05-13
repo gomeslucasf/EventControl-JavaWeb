@@ -60,7 +60,7 @@ public class AdminServlet extends HttpServlet {
         }
         
         request.setAttribute("erro", erro);
-        request.getRequestDispatcher("/pages/login/admin.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/admin/login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
