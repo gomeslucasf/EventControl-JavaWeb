@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eventcontrol.controller.servlet;
+package com.eventcontrol.controller.servlet.user;
 
-import com.eventcontrol.util.AuthHelper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferii
  */
-@WebServlet(name = "IndexServlet", urlPatterns = {"/index"})
-public class IndexServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout", "/admin/logout"})
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,14 +31,9 @@ public class IndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AuthHelper auth = new AuthHelper(request.getSession());
         
-        if(auth.isUserLoggedIn())
-        {
-            request.getRequestDispatcher("/eventos/user/index.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/eventos/logout");
-        }
+        request.getSession().invalidate();
+        response.sendRedirect("/eventos/");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

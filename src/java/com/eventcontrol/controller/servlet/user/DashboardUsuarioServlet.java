@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eventcontrol.controller.servlet;
+package com.eventcontrol.controller.servlet.user;
 
-import com.eventcontrol.util.AuthHelper;
+import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ferii
+ * @author Gomes
  */
-@WebServlet(name = "AdminIndexServlet", urlPatterns = {"/admin/index"})
-public class AdminIndexServlet extends HttpServlet {
+@WebServlet(name = "DashboardUsuarioServlet", urlPatterns = {"/admin/dashboard"})
+public class DashboardUsuarioServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,14 +33,9 @@ public class AdminIndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AuthHelper auth = new AuthHelper(request.getSession());
-        
-        if(auth.isAdminLoggedIn())
-        {
-            request.getRequestDispatcher("/eventos/admin/index.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/eventos/logout");
-        }
+            
+            request.setAttribute("configTemplate", new ConfigPage("../admin/cadastroEvento.jsp","Dashboard"));
+            request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

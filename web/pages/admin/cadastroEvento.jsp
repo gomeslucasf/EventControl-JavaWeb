@@ -6,24 +6,20 @@
                     <div class="col">
                         <form action="cadastro.do" method="post">
                             <div class="row">
-                                <div class="form-group col-md-3">
-                                      <label for="inputCodigoEvento">Código</label>
-                                      <input type="number" class="form-control" id="inputCodigoEvento">
-                                </div>
                                 <div class="form-group col-md-9">
                                   <label for="inputCodigoEvento">Titulo do Evento</label>
-                                  <input type="text" class="form-control" id="inputCodigoEvento">
+                                  <input type="text" class="form-control" name="evt_titulo" id="inputCodigoEvento">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputInicioEvento">Data de Inicio</label>
-                                    <input type="date" class="form-control" id="inputInicioEvento">
+                                    <input type="date" class="form-control" name="evt_data_ini" id="inputInicioEvento">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputFimEvento">Data de Encerramento</label>
-                                    <input type="date" class="form-control" id="inputFimEvento">
+                                    <input type="date" class="form-control" name="evt_data_fim" id="inputFimEvento">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                            <button type="submit" name="bSubmit" value="cadastrar" class="btn btn-success">Cadastrar</button>
                         </form>
                     </div>
                 </div>

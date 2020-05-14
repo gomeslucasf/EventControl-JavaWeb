@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.eventcontrol.controller.servlet;
+package com.eventcontrol.controller.servlet.user;
 
-import com.eventcontrol.model.Admin;
-import com.eventcontroller.dal.AdminDAL;
+import com.eventcontrol.model.Aluno;
+import com.eventcontroller.dal.AlunoDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferii
  */
-@WebServlet(name = "AdminServlet", urlPatterns = {"/admin"})
-public class AdminServlet extends HttpServlet {
+@WebServlet(name = "CadastroServlet", urlPatterns = {"/login/cadastro"})
+public class CadastroServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,28 +34,26 @@ public class AdminServlet extends HttpServlet {
         
         if(bSubmit != null && !bSubmit.isEmpty())
         {
-            String u_login = (String)request.getParameter("u_login");
+            String u_email = (String)request.getParameter("u_email");
             String u_passwd = (String)request.getParameter("u_password");
             
-            AdminDAL adal = new AdminDAL();
-            Admin usuario = adal.getByLogin(u_login);
+            AlunoDAL adal = new AlunoDAL();
+            Aluno usuario = adal.getByEmail(u_email);
             
             if(usuario != null)
             {
-                if(usuario.getSenha().equals(u_passwd))
-                {
-                    request.getSession().setAttribute("ADMIN", usuario);
-                    request.getRequestDispatcher("/admin/index").forward(request, response);
-                } else {
-                    erro = "Senha inválida";
-                }
+                erro = "Usuario existente";
             } else {
-                erro = "Usuário inválido";
+                Aluno novo = new Aluno();
+                novo.setEmail(u_email);
+                novo.setSenha(u_passwd);
+                
+                adal.inserir(novo);
             }
         }
         
         request.setAttribute("erro", erro);
-        request.getRequestDispatcher("/pages/login/admin.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/usuario/cadastro.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

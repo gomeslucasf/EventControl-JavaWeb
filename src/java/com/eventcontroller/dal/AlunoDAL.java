@@ -34,7 +34,7 @@ public class AlunoDAL {
                 + "FROM aluno "
                 + "WHERE alu_email = #1";
         
-        sql.replace("#1", "'"+ email +"'");
+        sql = sql.replace("#1", "'"+ email +"'");
         try(Connection con = Conexao.abrir())
         {
             try (Statement st = con.createStatement())
@@ -51,6 +51,7 @@ public class AlunoDAL {
             Logger.getLogger(AlunoDAL.class.getName()).log(Level.SEVERE, null, ex);
             throw new DAOException("Falha ao conectar-se ao banco de dados.");
         }
+        
         return null;
     }
     

@@ -1,7 +1,11 @@
-package com.eventcontrol.controller.servlet;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.eventcontrol.controller.servlet.admin;
 
-import com.eventcontrol.model.Aluno;
-import com.eventcontroller.dal.AlunoDAL;
+import com.eventcontrol.util.AuthHelper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferii
  */
-@WebServlet(name = "CadastroServlet", urlPatterns = {"/login/cadastro"})
-public class CadastroServlet extends HttpServlet {
+@WebServlet(name = "AdminEventosServlet", urlPatterns = {"/admin/eventos"})
+public class AdminEventosServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,32 +32,24 @@ public class CadastroServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        AuthHelper auth = new AuthHelper(request.getSession());
         
-        String bSubmit = (String)request.getParameter("bSubmit");
-        String erro = "";
-        
-        if(bSubmit != null && !bSubmit.isEmpty())
+        if(auth.isAdminLoggedIn())
         {
-            String u_email = (String)request.getParameter("u_email");
-            String u_passwd = (String)request.getParameter("u_password");
-            
-            AlunoDAL adal = new AlunoDAL();
-            Aluno usuario = adal.getByEmail(u_email);
-            
-            if(usuario != null)
+            String error = "";
+            String bSubmit = (String)request.getParameter("bSubmit");
+            if(request.getMethod().equals("POST") && bSubmit != null && bSubmit.isEmpty())
             {
-                erro = "Usuario existente";
-            } else {
-                Aluno novo = new Aluno();
-                novo.setEmail(u_email);
-                novo.setSenha(u_passwd);
+                String titulo = (String)request.getParameter("evt_titulo");
+                String data_inicio = (String)request.getParameter("evt_data_ini");
+                String data_fim = (String)request.getParameter("evt_data_fim");
                 
-                adal.inserir(novo);
             }
+            
+            request.getRequestDispatcher("/pages/admin/cadastroEvento.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("/eventos/logout");
         }
-        
-        request.setAttribute("erro", erro);
-        request.getRequestDispatcher("/pages/usuario/cadastro.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
