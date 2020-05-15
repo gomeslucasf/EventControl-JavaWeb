@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.eventcontrol.controller.servlet.admin;
 
 import com.eventcontrol.util.ConfigPage;
@@ -13,10 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Gomes
- */
 @WebServlet(name = "AdminInstrutorListagemServlet", urlPatterns = {"/admin/instrutor"})
 public class AdminInstrutorListagemServlet extends HttpServlet {
 
@@ -31,11 +22,11 @@ public class AdminInstrutorListagemServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        {
         
-            request.setAttribute("configTemplate", new ConfigPage("../admin/listaInstrutor.jsp","Lista de Eventos"));
-            request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
-        }
+        
+        
+        request.setAttribute("configTemplate", new ConfigPage("../admin/listaInstrutor.jsp","Lista de Eventos"));
+        request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

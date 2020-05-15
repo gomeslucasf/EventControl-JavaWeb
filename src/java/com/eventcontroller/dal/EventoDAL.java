@@ -7,6 +7,8 @@ import com.eventcontrol.persistencia.Conexao;
 import com.eventcontrol.persistencia.DAOException;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,7 +42,9 @@ public class EventoDAL {
             {
                 try (ResultSet rs = st.executeQuery(sql)) {
                     if (rs.next()) {
-                        return gerar(rs);
+                        Evento evento = gerar(rs);
+                        con.close();
+                        return evento;
                     }
                 }
             }
@@ -54,24 +58,26 @@ public class EventoDAL {
         return null;
     }
     
-    public Evento getByNome(String nome)
+    public List<Evento> getByIniDate(String eval, String date)
     {
         String sql = "SELECT "
                 + "*"
                 + "FROM evento "
-                + "WHERE eve_nome LIKE #1";
+                + "WHERE eve_ini #1 #2";
         
-        sql = sql.replace("#1", "'%"+ nome +"%'");
+        sql = sql.replace("#2", "'%"+ date +"%'");
+        List<Evento> eventos = new ArrayList<Evento>();
         try(Connection con = Conexao.abrir())
         {
             try (Statement st = con.createStatement())
             {
                 try (ResultSet rs = st.executeQuery(sql)) {
                     if (rs.next()) {
-                        return gerar(rs);
+                        eventos.add(gerar(rs));
                     }
                 }
             }
+            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(AlunoDAL.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NullPointerException ex) {
@@ -79,7 +85,7 @@ public class EventoDAL {
             throw new DAOException("Falha ao conectar-se ao banco de dados.");
         }
         
-        return null;
+        return eventos;
     }
     
     public void inserir(Evento novo)
