@@ -13,8 +13,6 @@
     </head>
     
     <body style="background:#EAEAEA;">
-        
-        
         <div class="container">
             <div class="fixed-top">
                 <div class="collapse" id="menuTop">
@@ -39,10 +37,10 @@
                         <img src="/eventos/img/logoUnoesteBranco.png" width="200" height="44"/>
                     </a>
                       <h5 class="text-white h4">
-                          Eventos
+                          <a href="/admin/evento">Eventos</a>
                       </h5>
                       <h5 class="text-white h4">
-                          Instrutores
+                          <a href="/admin/evento">Instrutores</a>
                       </h5>
                   </div>
                 </div>
