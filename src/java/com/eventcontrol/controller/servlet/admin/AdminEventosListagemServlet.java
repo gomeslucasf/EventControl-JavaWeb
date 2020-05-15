@@ -7,7 +7,6 @@ package com.eventcontrol.controller.servlet.admin;
 
 import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +31,7 @@ public class AdminEventosListagemServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        {
       
             request.setAttribute("configTemplate", new ConfigPage("../admin/listaEvento.jsp","Lista de Eventos"));
             request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 

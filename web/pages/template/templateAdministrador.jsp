@@ -38,8 +38,12 @@
                     <a class="navbar-brand p-3" href="/eventos/">
                         <img src="/eventos/img/logoUnoesteBranco.png" width="200" height="44"/>
                     </a>
-                    <h5 class="text-white h4">Informações sobre a Infoeste</h5>
-                    <span class="text-muted">É um Evento mt top</span>
+                      <h5 class="text-white h4">
+                          Eventos
+                      </h5>
+                      <h5 class="text-white h4">
+                          Instrutores
+                      </h5>
                   </div>
                 </div>
                 <nav class="navbar navbar-dark bg-dark justify-content-center ">
@@ -58,14 +62,8 @@
             
         </div>
         
-        
-        
-        
-        
-    
-    
-    <script src="/eventos/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="/eventos/js/popper.min.js"></script>
-    <script src="/eventos/js/bootstrap.min.js"></script>
+        <script src="/eventos/js/jquery-3.4.1.slim.min.js"></script>
+        <script src="/eventos/js/popper.min.js"></script>
+        <script src="/eventos/js/bootstrap.min.js"></script>
     </body>
 </html>

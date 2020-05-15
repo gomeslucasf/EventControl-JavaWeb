@@ -1,6 +1,7 @@
 package com.eventcontrol.controller.servlet.admin;
 
 import com.eventcontrol.util.AuthHelper;
+import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "AdminIndexServlet", urlPatterns = {"/admin/index"})
+@WebServlet(name = "AdminIndexServlet", urlPatterns = {"/admin/dashboard"})
 public class AdminIndexServlet extends HttpServlet {
 
     /**
@@ -23,14 +24,10 @@ public class AdminIndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AuthHelper auth = new AuthHelper(request.getSession());
+      
+            request.setAttribute("configTemplate", new ConfigPage("../admin/dashboard.jsp","Dashboard Administrador"));
+            request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
         
-        if(auth.isAdminLoggedIn())
-        {
-            request.getRequestDispatcher("/eventos/admin/index.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/eventos/logout");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
