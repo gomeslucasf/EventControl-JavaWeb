@@ -5,9 +5,14 @@
  */
 package com.eventcontrol.controller.servlet.admin;
 
+import com.eventcontrol.model.Evento;
 import com.eventcontrol.util.AuthHelper;
+import com.eventcontrol.util.ConfigPage;
+import com.eventcontroller.dal.EventoDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,9 +48,49 @@ public class AdminEventosServlet extends HttpServlet {
                 String titulo = (String)request.getParameter("evt_titulo");
                 String data_inicio = (String)request.getParameter("evt_data_ini");
                 String data_fim = (String)request.getParameter("evt_data_fim");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 
+                Date inicio = null;
+                Date fim = null;
+                
+                if(titulo != null && !titulo.isEmpty())
+                {
+                    if(data_inicio != null && !data_inicio.isEmpty())
+                    {
+                        try {
+                            inicio = new Date(sdf.parse(data_inicio).getTime());
+                        }
+                        catch (Exception e) {
+                            error = "ERR_INVALID_IDATE";
+                        }
+                    }
+                    
+                    if(data_fim != null && !data_fim.isEmpty())
+                    {
+                        try {
+                            fim = new Date(sdf.parse(data_fim).getTime());
+                        }
+                        catch (Exception e) {
+                            error = "ERR_INVALID_EDATE";
+                        }
+                    }
+                } else {
+                    error = "ERR_TITLE_EMPTY";
+                }
+                
+                if(error.isEmpty())
+                {
+                    Evento evento = new Evento();
+                    evento.setFim(fim);
+                    evento.setInicio(inicio);
+                    evento.setNome(titulo);
+                    
+                    EventoDAL e_dal = new EventoDAL();
+                    e_dal.insert(evento);
+                }
             }
             
+            ConfigPage cfg = new ConfigPage();
             request.getRequestDispatcher("/pages/admin/cadastroEvento.jsp").forward(request, response);
         } else {
             response.sendRedirect("/eventos/logout");

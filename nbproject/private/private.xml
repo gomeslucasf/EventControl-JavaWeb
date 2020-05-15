@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/AdminServlet.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontroller/dal/AdminDAL.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/IndexServlet.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/LoginServlet.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/AdminIndexServlet.java</file>
-            <file>file:/Y:/EventControl-JavaWeb/web/pages/admin/login.jsp</file>
-            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/persistencia/Conexao.java</file>
+            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/user/LoginServlet.java</file>
+            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/user/LogoutServlet.java</file>
+            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/user/CadastroServlet.java</file>
+            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/admin/AdminEventosServlet.java</file>
+            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/model/Evento.java</file>
             <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontroller/dal/AlunoDAL.java</file>
+            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/user/IndexServlet.java</file>
+            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontrol/controller/servlet/admin/AdminServlet.java</file>
+            <file>file:/Y:/EventControl-JavaWeb/src/java/com/eventcontroller/dal/EventoDAL.java</file>
         </group>
     </open-files>
 </project-private>
