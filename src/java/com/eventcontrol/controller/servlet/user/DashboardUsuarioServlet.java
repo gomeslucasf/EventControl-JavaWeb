@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eventcontrol.controller.servlet;
+package com.eventcontrol.controller.servlet.user;
 
 import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
@@ -34,8 +34,6 @@ public class DashboardUsuarioServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
-            request.setAttribute("configTemplate", new ConfigPage("../admin/cadastroEvento.jsp","Dashboard"));
-            request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

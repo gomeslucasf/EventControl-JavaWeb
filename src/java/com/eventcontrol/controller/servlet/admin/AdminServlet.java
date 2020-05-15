@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eventcontrol.controller.servlet;
+package com.eventcontrol.controller.servlet.admin;
 
+import com.eventcontrol.model.Admin;
+import com.eventcontrol.util.AuthHelper;
+import com.eventcontroller.dal.AdminDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferii
  */
-@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout"})
-public class LogoutServlet extends HttpServlet {
+@WebServlet(name = "AdminServlet", urlPatterns = {"/admin"})
+public class AdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,8 +35,40 @@ public class LogoutServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        request.getSession().invalidate();
-        response.sendRedirect("/eventos/");
+        AuthHelper auth = new AuthHelper(request.getSession());
+        
+        String erro = "";
+        if(!auth.isAdminLoggedIn())
+        {
+            String bSubmit = (String)request.getParameter("btnAcessar");
+
+            if(request.getMethod().equals("POST") && bSubmit != null && !bSubmit.isEmpty())
+            {
+                String a_login = (String)request.getParameter("a_login");
+                String a_passwd = (String)request.getParameter("a_password");
+
+                AdminDAL adal = new AdminDAL();
+                Admin usuario = adal.getByLogin(a_login);
+
+                if(usuario != null)
+                {
+                    if(usuario.getSenha().equals(a_passwd))
+                    {
+                        request.getSession().setAttribute("ADMIN", usuario);
+                        response.sendRedirect("/eventos/admin/index");
+                        return;
+                    } else {
+                        erro = "Senha inválida";
+                    }
+                } else {
+                    erro = "Usuário inválido";
+                }
+            }
+        } else {
+            response.sendRedirect("/eventos/admin/index");
+        }
+        request.setAttribute("erro", erro);
+        request.getRequestDispatcher("/pages/admin/login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

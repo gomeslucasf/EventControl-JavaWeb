@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.eventcontrol.controller.servlet;
+package com.eventcontrol.controller.servlet.user;
 
-import com.eventcontrol.util.AuthHelper;
+import com.eventcontrol.model.Aluno;
+import com.eventcontroller.dal.AlunoDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferii
  */
-@WebServlet(name = "AdminIndexServlet", urlPatterns = {"/admin/index"})
-public class AdminIndexServlet extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,14 +28,35 @@ public class AdminIndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AuthHelper auth = new AuthHelper(request.getSession());
         
-        if(auth.isAdminLoggedIn())
+        String bSubmit = (String)request.getParameter("bSubmit");
+        String erro = "";
+        
+        if(bSubmit != null && !bSubmit.isEmpty())
         {
-            request.getRequestDispatcher("/eventos/admin/index.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/eventos/logout");
+            String u_email = (String)request.getParameter("u_email");
+            String u_passwd = (String)request.getParameter("u_password");
+            
+            AlunoDAL adal = new AlunoDAL();
+            Aluno usuario = adal.getByEmail(u_email);
+            
+            if(usuario != null)
+            {
+                if(usuario.getSenha().equals(u_passwd))
+                {
+                    request.getSession().setAttribute("USER", usuario);
+                    response.sendRedirect("/eventos/index");
+                    return;
+                } else {
+                    erro = "Senha inválida";
+                }
+            } else {
+                erro = "Usuário inválido";
+            }
         }
+        
+        request.setAttribute("erro", erro);
+        request.getRequestDispatcher("/pages/usuario/login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eventcontrol.controller.servlet;
+package com.eventcontrol.controller.servlet.admin;
 
-import com.eventcontrol.util.AuthHelper;
+import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ferii
+ * @author Gomes
  */
-@WebServlet(name = "IndexServlet", urlPatterns = {"/index"})
-public class IndexServlet extends HttpServlet {
+@WebServlet(name = "AdminListagemServlet", urlPatterns = {"/admin/evento"})
+public class AdminEventosListagemServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,13 +32,9 @@ public class IndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AuthHelper auth = new AuthHelper(request.getSession());
-        
-        if(auth.isUserLoggedIn())
-        {
-            request.getRequestDispatcher("/eventos/user/index.jsp").forward(request, response);
-        } else {
-            response.sendRedirect("/eventos/logout");
+      
+            request.setAttribute("configTemplate", new ConfigPage("../admin/listaEvento.jsp","Lista de Eventos"));
+            request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
         }
     }
 

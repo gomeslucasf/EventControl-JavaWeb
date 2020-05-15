@@ -31,7 +31,8 @@ public class AdminDAL {
     
     
     public Admin getByLogin(String login){
-        String sql = "SELECT * FROM usuario WHERE usu_login = "+login; 
+        String sql = "SELECT * FROM usuario WHERE usu_login = #1";
+        sql = sql.replace("#1", "'"+ login +"'");
         
         try
         {

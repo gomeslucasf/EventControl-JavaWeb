@@ -1,7 +1,11 @@
-package com.eventcontrol.controller.servlet;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.eventcontrol.controller.servlet.admin;
 
-import com.eventcontrol.model.Aluno;
-import com.eventcontroller.dal.AlunoDAL;
+import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ferii
+ * @author Gomes
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "AdminInstrutorServlet", urlPatterns = {"/admin/instrutor/cadastro"})
+public class AdminInstrutorServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,32 +33,8 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String bSubmit = (String)request.getParameter("bSubmit");
-        String erro = "";
-        
-        if(bSubmit != null && !bSubmit.isEmpty())
-        {
-            String u_email = (String)request.getParameter("u_email");
-            String u_passwd = (String)request.getParameter("u_password");
-            
-            AlunoDAL adal = new AlunoDAL();
-            Aluno usuario = adal.getByEmail(u_email);
-            
-            if(usuario != null)
-            {
-                if(usuario.getSenha().equals(u_passwd))
-                {
-                    request.getSession().setAttribute("USER", usuario);
-                } else {
-                    erro = "Senha inválida";
-                }
-            } else {
-                erro = "Usuário inválido";
-            }
-        }
-        
-        request.setAttribute("erro", erro);
-        request.getRequestDispatcher("/pages/usuario/login.jsp").forward(request, response);
+            request.setAttribute("configTemplate", new ConfigPage("../admin/cadastroInstrutor.jsp","Instrutor"));
+            request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
