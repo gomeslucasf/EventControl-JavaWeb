@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Gomes
  */
-@WebServlet(name = "DashboardUsuarioServlet", urlPatterns = {"/admin/dashboard"})
+@WebServlet(name = "DashboardUsuarioServlet", urlPatterns = {"/usuario/dashboard"})
 public class DashboardUsuarioServlet extends HttpServlet {
 
     /**
