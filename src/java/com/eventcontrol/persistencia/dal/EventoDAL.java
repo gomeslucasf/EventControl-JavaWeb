@@ -65,7 +65,7 @@ public class EventoDAL {
                 + "FROM evento "
                 + "WHERE eve_ini #1 #2";
         
-        sql = sql.replace("#2", eval);
+        sql = sql.replace("#1", eval);
         sql = sql.replace("#2", "'%"+ date +"%'");
         List<Evento> eventos = new ArrayList<Evento>();
         try(Connection con = Conexao.abrir())
@@ -94,6 +94,28 @@ public class EventoDAL {
         String sql = "INSERT INTO evento (eve_nome, eve_ini, eve_fim) VALUES "
                 + "('" + novo.getNome() + "', '" + novo.getInicio() + "', "
                 + "'" + novo.getFim() + "')";
+        try (Connection conn = Conexao.abrir()) {
+            try (Statement st = conn.createStatement()) {
+                st.execute(sql);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDAL.class.getName()).log(Level.SEVERE, null, ex);
+            throw new DAOException("Erro inserindo registro.");
+        } catch (NullPointerException ex) {
+            Logger.getLogger(AlunoDAL.class.getName()).log(Level.SEVERE, null, ex);
+            throw new DAOException("Falha abrindo banco de dados.");
+        }
+    }
+    
+    public void update(Evento alt)
+            throws DAOException {
+        String sql = "UPDATE evento SET eve_nome = #1, eve_ini = #2, eve_fim = #3"
+                + "WHERE codigo = #4";
+        sql = sql.replace("#1", "'"+ alt.getNome() +"'");
+        sql = sql.replace("#2", "'"+ alt.getInicio() +"'");
+        sql = sql.replace("#3", "'"+ alt.getFim() +"'");
+        sql = sql.replace("#4", "'"+ alt.getCodigo() +"'");
+
         try (Connection conn = Conexao.abrir()) {
             try (Statement st = conn.createStatement()) {
                 st.execute(sql);

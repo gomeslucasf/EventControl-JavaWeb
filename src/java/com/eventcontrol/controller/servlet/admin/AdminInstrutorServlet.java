@@ -5,6 +5,7 @@
  */
 package com.eventcontrol.controller.servlet.admin;
 
+import com.eventcontrol.model.Instrutor;
 import com.eventcontrol.persistencia.dal.InstrutorDAL;
 import com.eventcontrol.util.AuthHelper;
 import com.eventcontrol.util.ConfigPage;
@@ -52,6 +53,39 @@ public class AdminInstrutorServlet extends HttpServlet {
                         }
                     } else {
                         error = "Código não informado";
+                    }
+                }
+            } else if(request.getMethod().equals("POST")) 
+            {
+                String btn_submit = (String)request.getParameter("btnSubmit");
+                if(btn_submit != null && !btn_submit.isEmpty())
+                {
+                    String nome_instrutor = (String)request.getParameter("inputNomeInstrutor");
+                    String curr_instrutor = (String)request.getParameter("inputNomeEvento");
+                    String id_instrutor = (String)request.getParameter("inputCurriculo");
+
+                    if(nome_instrutor != null && !nome_instrutor.isEmpty())
+                    {
+                        if(curr_instrutor != null && !curr_instrutor.isEmpty())
+                        {
+                            InstrutorDAL idal = new InstrutorDAL();
+                            Instrutor inst = new Instrutor();
+                            inst.setNome(nome_instrutor);
+                            inst.setCurriculo(curr_instrutor);
+                            
+                            if(id_instrutor != null && !id_instrutor.isEmpty())
+                            {
+                                inst.setCodigo(id_instrutor);
+                                idal.update(inst);
+                            }else{
+                                idal.inserir(inst);
+                            }
+                            
+                        } else {
+                            error = "Data de inicio obrigatória";
+                        }
+                    } else {
+                        error = "Nome do evento obrigatório";
                     }
                 }
             }

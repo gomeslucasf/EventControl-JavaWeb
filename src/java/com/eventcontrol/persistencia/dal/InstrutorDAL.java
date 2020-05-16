@@ -92,8 +92,26 @@ public class InstrutorDAL {
     
     public void inserir(Instrutor novo)
             throws DAOException {
-        String sql = "INSERT INTO instrutor (nome, curriculo) VALUES "
+        String sql = "INSERT INTO instrutor (ins_nome, ins_curriculo) VALUES "
                 + "('" + novo.getNome() + "', '" + novo.getCurriculo() + "')";
+        try (Connection conn = Conexao.abrir()) {
+            try (Statement st = conn.createStatement()) {
+                st.execute(sql);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDAL.class.getName()).log(Level.SEVERE, null, ex);
+            throw new DAOException("Erro inserindo registro.");
+        } catch (NullPointerException ex) {
+            Logger.getLogger(AlunoDAL.class.getName()).log(Level.SEVERE, null, ex);
+            throw new DAOException("Falha abrindo banco de dados.");
+        }
+    }
+    
+    public void update(Instrutor alt)
+            throws DAOException {
+        String sql = "UPDATE instrutor SET ins_nome = #1, ins_curriculo = #2 WHERE ins_codigo = #3 ";
+        sql = sql.replace("#1", "'"+ alt.getNome() +"'");
+        sql = sql.replace("#2", "'"+ alt.getCurriculo() +"'");
         try (Connection conn = Conexao.abrir()) {
             try (Statement st = conn.createStatement()) {
                 st.execute(sql);
@@ -109,7 +127,7 @@ public class InstrutorDAL {
     
     public void delete(int codigo)
             throws DAOException {
-        String sql = "DELETE FROM instrutor WHERE codigo = #1";
+        String sql = "DELETE FROM instrutor WHERE ins_codigo = #1";
         sql = sql.replace("#1", "'"+ codigo +"'");
         try (Connection conn = Conexao.abrir()) {
             try (Statement st = conn.createStatement()) {

@@ -31,7 +31,8 @@ public class Evento {
         setInicio(inicio);
         setFim(fim);
     }
-
+    
+ 
     public int getCodigo() {
         return codigo;
     }
@@ -48,8 +49,8 @@ public class Evento {
         this.nome = nome;
     }
 
-    public Date getInicio() {
-        return inicio;
+    public String getInicio() {
+        return inicio.toString();
     }
 
     public void setInicio(Date inicio) {
@@ -61,8 +62,8 @@ public class Evento {
         this.inicio = new Date(sdf.parse(inicio).getTime());
     }
 
-    public Date getFim() {
-        return fim;
+    public String getFim() {
+        return fim.toString();
     }
     
     public void setFim(String fim) throws Exception {

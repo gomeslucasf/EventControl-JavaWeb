@@ -61,6 +61,61 @@ public class AdminEventosServlet extends HttpServlet {
                         error = "Código não informado";
                     }
                 }
+            } else if(request.getMethod().equals("POST")) 
+            {
+                String btn_submit = (String)request.getParameter("btnSubmit");
+                if(btn_submit != null && !btn_submit.isEmpty())
+                {
+                    String nome_evento = (String)request.getParameter("inputNomeEvento");
+                    String data_inicio = (String)request.getParameter("inputInicioEvento");
+                    String data_fim = (String)request.getParameter("inputFimEvento");
+                    String id_evento = (String)request.getParameter("inputCodigoEvento");
+
+                    if(nome_evento != null && !nome_evento.isEmpty())
+                    {
+                        if(data_inicio != null && !data_inicio.isEmpty())
+                        {
+                            if(data_fim != null && !data_fim.isEmpty())
+                            {
+                                EventoDAL edal = new EventoDAL();
+                                Evento evt = new Evento();
+                                evt.setNome(nome_evento);
+                                try{
+                                    evt.setInicio(data_inicio);
+                                } catch (Exception e)
+                                {
+                                    error = "Data de inicio inválida";
+                                }
+                                
+                                try{
+                                    evt.setFim(data_fim);
+                                } catch (Exception e)
+                                {
+                                    error = "Data de fim inválida";
+                                }
+                                
+                                if(error.isEmpty())
+                                {
+                                    if(id_evento != null && !id_evento.isEmpty())
+                                    {
+                                        evt.setCodigo(id_evento);
+                                        edal.update(evt);
+
+                                    } else {
+                                        edal.inserir(evt);
+
+                                    }
+                                }
+                            } else {
+                                error = "Data de fim obrigatória";
+                            }
+                        } else {
+                            error = "Data de inicio obrigatória";
+                        }
+                    } else {
+                        error = "Nome do evento obrigatório";
+                    }
+                }
             }
 
             request.setAttribute("error", error);
