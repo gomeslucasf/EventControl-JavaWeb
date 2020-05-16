@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="evento" class="com.eventcontrol.controller.servlet.admin.AdminEventosServlet" scope="request"/> 
+<jsp:useBean id="erros" class="com.eventcontrol.controller.servlet.admin.AdminEventosServlet" scope="request"/> 
 <div class="p-3">
     <div class="panel bg-white">
         <div class="panel-heading text-center p-3">
@@ -13,15 +14,15 @@
                         <div class="row">
                             <div class="form-group col-12">
                               <label for="inputCodigoEvento">Titulo do Evento</label>
-                              <input type="text" class="form-control" name="evt_titulo" id="inputCodigoEvento">
+                              <input type="text" class="form-control" name="inputCodigoEvento" id="inputCodigoEvento" required>
                             </div>
                             <div class="form-group col-6">
                                 <label for="inputInicioEvento">Data de Inicio</label>
-                                <input type="date" class="form-control" name="evt_data_ini" id="inputInicioEvento">
+                                <input type="date" class="form-control" name="inputInicioEvento" id="inputInicioEvento" required>
                             </div>
                             <div class="form-group col-6">
                                 <label for="inputFimEvento">Data de Encerramento</label>
-                                <input type="date" class="form-control" name="evt_data_fim" id="inputFimEvento">
+                                <input type="date" class="form-control" name="inputFimEvento" id="inputFimEvento" required>
                             </div>
                         </div>
                     </c:if>
@@ -29,15 +30,15 @@
                         <div class="row">
                             <div class="form-group col-12">
                               <label for="inputCodigoEvento">Titulo do Evento</label>
-                              <input type="text" class="form-control" name="evt_titulo" id="inputCodigoEvento" value="${evento.nome}">
+                              <input type="text" class="form-control" name="inputCodigoEvento" id="inputCodigoEvento" value="${evento.nome}" required>
                             </div>
                             <div class="form-group col-6">
                                 <label for="inputInicioEvento">Data de Inicio</label>
-                                <input type="date" class="form-control" name="evt_data_ini" id="inputInicioEvento" value="${evento.inicio}">
+                                <input type="date" class="form-control" name="inputInicioEvento" id="inputInicioEvento" value="${evento.inicio}" required>
                             </div>
                             <div class="form-group col-6">
                                 <label for="inputFimEvento">Data de Encerramento</label>
-                                <input type="date" class="form-control" name="evt_data_fim" id="inputFimEvento" value="${evento.fim}">
+                                <input type="date" class="form-control" name="inputFimEvento" id="inputFimEvento" value="${evento.fim}" required>
                             </div>
                         </div>
                     </c:if>
@@ -52,7 +53,13 @@
         </div>
         <div class="panel-footer">
             <div class="p-3">
-
+                <c:if test="erros">
+                    <c:forEach var="erro" items="erros">
+                        <ul>
+                            <li>${erro}</li>
+                        </ul> 
+                    </c:forEach>
+                </c:if>
             </div>
         </div>
     </div>
