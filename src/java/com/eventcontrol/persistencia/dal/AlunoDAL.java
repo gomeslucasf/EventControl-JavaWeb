@@ -1,4 +1,4 @@
-package com.eventcontroller.dal;
+package com.eventcontrol.persistencia.dal;
 
 import com.eventcontrol.model.Aluno;
 import com.eventcontrol.persistencia.Conexao;

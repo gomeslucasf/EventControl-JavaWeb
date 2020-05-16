@@ -5,6 +5,8 @@
  */
 package com.eventcontrol.controller.servlet.admin;
 
+import com.eventcontrol.persistencia.dal.InstrutorDAL;
+import com.eventcontrol.util.AuthHelper;
 import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -32,8 +34,38 @@ public class AdminInstrutorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            request.setAttribute("configTemplate", new ConfigPage("../admin/cadastroInstrutor.jsp","Instrutor"));
-            request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
+        AuthHelper auth = new AuthHelper(request.getSession());
+        if (auth.isAdminLoggedIn()) {
+            String error = "";
+            if (request.getMethod().equals("DELETE")) {
+                String btn_remover = (String) request.getParameter("btnRemover");
+
+                if (btn_remover != null && !btn_remover.isEmpty()) {
+                    InstrutorDAL idal = new InstrutorDAL();
+                    String evt_id = (String) request.getParameter("inst_id");
+                    if (evt_id != null && !evt_id.isEmpty()) {
+                        try {
+                            int cod = Integer.parseInt(evt_id);
+                            idal.delete(cod);
+                        } catch (Exception e) {
+                            error = "Código inválido";
+                        }
+                    } else {
+                        error = "Código não informado";
+                    }
+                }
+            }
+
+            request.setAttribute("error", error);
+            request.setAttribute("configTemplate", new ConfigPage("../admin/cadastroEvento.jsp", "Evento"));
+            request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("/eventos/");
+            return;
+        }
+        
+        request.setAttribute("configTemplate", new ConfigPage("../admin/cadastroInstrutor.jsp","Instrutor"));
+        request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

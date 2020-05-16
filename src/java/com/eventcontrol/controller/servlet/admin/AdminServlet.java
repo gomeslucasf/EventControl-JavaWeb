@@ -7,7 +7,7 @@ package com.eventcontrol.controller.servlet.admin;
 
 import com.eventcontrol.model.Admin;
 import com.eventcontrol.util.AuthHelper;
-import com.eventcontroller.dal.AdminDAL;
+import com.eventcontrol.persistencia.dal.AdminDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
