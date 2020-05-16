@@ -49,7 +49,7 @@
                             <td >${instrutor.nome}</td>
                             <td>${instrutor.curriculo}</td>
                             <td>
-                                <form action="AdminInstrutorServlet.do">
+                                <form action="/eventos/admin/instrutor">
                                     <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
                                     <input type="hidden" value="${instrutor.codigo}" id="inputCodigoInstrutor" name="inputCodigoInstrutor">
                                     <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
@@ -61,7 +61,7 @@
             </table>
         </div>
         <div class="panel-footer">
-            <form  action="AdminInstrutorListagemServlet.do">
+            <form  action="/eventos/admin/instrutor">
                 <button id="btnNovoEvento" name="btnNovoEvento" type="button" class="btn btn-outline-success">Novo Evento</button>
             </form>
                     

@@ -9,7 +9,7 @@
         </div>
         <div class="panel-body"> 
             <div class="col">
-                <form action="AdminInstrutorServlet.do" method="post">
+                <form action="/eventos/admin/instrutor/cadastro" method="post">
                     <c:if test="${not empty instrutor}">
                         <div class="row">
                             <div class="form-group col-12">
@@ -34,7 +34,6 @@
                             </div>
                         </div>
                     </c:if>
-                    
                         <div class="row">
                             <div class="col align-items-end">
                                 <button type="submit" name="btnSubmit" value="cadastrar" class="btn btn-success">Confirmar</button>

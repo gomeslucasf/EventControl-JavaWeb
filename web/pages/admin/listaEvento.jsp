@@ -51,7 +51,7 @@
                             <td>${evento.inicio}</td>
                             <td>${evento.fim}</td>
                             <td>
-                                <form action="AdminEventoServlet.do">
+                                <form action="/eventos/admin/evento">
                                     <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
                                     <input type="hidden" value="${evento.codigo}" id="inputCodigoEvento" name="inputCodigoEvento">
                                     <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
@@ -63,7 +63,7 @@
             </table>
         </div>
         <div class="panel-footer">
-            <form  action="AdminEventosListagemServlet.do">
+            <form  action="/eventos/admin/evento">
                 <button id="btnNovoEvento" name="btnNovoEvento" type="button" class="btn btn-outline-success">Novo Evento</button>
             </form>
                     

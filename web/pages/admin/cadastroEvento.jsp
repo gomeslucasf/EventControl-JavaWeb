@@ -9,7 +9,7 @@
         </div>
         <div class="panel-body"> 
             <div class="col">
-                <form action="AdminEventoServlets.do" method="post">
+                <form action="/eventos/admin/evento/cadastro" method="post">
                     <c:if test="${not empty evento}">
                         <div class="row">
                             <div class="form-group col-12">
