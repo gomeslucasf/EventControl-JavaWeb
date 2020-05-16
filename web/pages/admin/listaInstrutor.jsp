@@ -1,4 +1,4 @@
-<<div class="p-3">
+ <div class="p-3">
     <div class="panel bg-white p-3">
         <div class="panel-heading text-center">
             <h2>Lista de Instrutores</h2>
@@ -46,47 +46,12 @@
                         <td>
                             <form action="AdminInstrutorServlet.do">
                                 <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
-                                <input type="hidden" value="evento">
+                                <input type="hidden" value="codigoDoInstrutor" id="inputCodigoInstrutor" name="inputCodigoInstrutor">
                                 <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
                             </form>
                         </td>
                     </tr>
-                     <tr>
-                        <th scope="row">1</th>
-                        <td >Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <form action="AdminInstrutorServlet.do">
-                                <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
-                                <input type="hidden" value="evento">
-                                <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
-                            </form>
-                        </td>
-                    </tr>
-                     <tr>
-                        <th scope="row">1</th>
-                        <td >Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <form action="AdminInstrutorServlet.do">
-                                <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
-                                <input type="hidden" value="evento">
-                                <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
-                            </form>
-                        </td>
-                    </tr>
-                     <tr>
-                        <th scope="row">1</th>
-                        <td >Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <form action="AdminInstrutorServlet.do">
-                                <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
-                                <input type="hidden" value="evento">
-                                <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
-                            </form>
-                        </td>
-                    </tr>
+                     
                 </tbody>
             </table>
         </div>

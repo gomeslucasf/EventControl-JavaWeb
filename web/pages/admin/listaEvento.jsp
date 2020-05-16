@@ -48,38 +48,11 @@
                         <td>
                             <form action="AdminEventoServlet.do">
                                 <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
-                                <input type="hidden" value="evento">
+                                <input type="hidden" value="evento" id="inputCodigoEvento" name="inputCodigoEvento">
                                 <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
                             </form>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td >Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <form action="AdminEventoServlet.do">
-                                <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
-                                <input type="hidden" value="evento">
-                                <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td >Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <form action="AdminEventoServlet.do">
-                                <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
-                                <input type="hidden" value="evento">
-                                <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
-                            </form>
-                        </td>
-                    </tr>
-                    
                 </tbody>
             </table>
         </div>

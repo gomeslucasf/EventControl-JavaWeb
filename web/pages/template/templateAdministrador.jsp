@@ -26,21 +26,22 @@
                 </div>
                 <nav class="navbar navbar-dark bg-dark  justify-content-end ">
                     <button class="navbar-toggler border-0" title="Menu" type="button" data-toggle="collapse" data-target="#menuTop" aria-controls="menuTop" aria-expanded="false" aria-label="Toggle navigation">
-                        <i><img src="/eventos/icon/avatarAdmin.ico" height="30" width="30" alt="Perfil" title="Mostrar Senha" /></i>
+                        <a href="/eventos/admin/home">Home</a>
+                        <i><img src="/eventos/icon/avatarAdmin.ico" height="30" width="30" alt="Perfil" title="Avatar" /></i>
                     </button>
                 </nav>
             </div>
             <div class="fixed-bottom">
                 <div class="collapse" id="menuBottom">
                   <div class="bg-dark p-4">
-                    <a class="navbar-brand p-3" href="/eventos/">
+                    <a class="navbar-brand p-3" href="/eventos/admin/home">
                         <img src="/eventos/img/logoUnoesteBranco.png" width="200" height="44"/>
                     </a>
                       <h5 class="text-white h4">
-                          <a href="/admin/evento">Eventos</a>
+                          <a href="evento">Eventos</a>
                       </h5>
                       <h5 class="text-white h4">
-                          <a href="/admin/evento">Instrutores</a>
+                          <a href="instrutor">Instrutores</a>
                       </h5>
                   </div>
                 </div>

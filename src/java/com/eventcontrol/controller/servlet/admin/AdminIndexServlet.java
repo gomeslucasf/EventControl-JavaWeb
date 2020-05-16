@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "AdminIndexServlet", urlPatterns = {"/admin/dashboard"})
+@WebServlet(name = "AdminIndexServlet", urlPatterns = {"/admin/home"})
 public class AdminIndexServlet extends HttpServlet {
 
     /**
