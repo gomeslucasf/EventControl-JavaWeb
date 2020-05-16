@@ -23,6 +23,7 @@
                         </div>
                     </c:if>
                     <c:if test="${instrutor}">
+                        <div type="hidden" id="inputCodigoInstrutor" name="inputCodigoInstrutor" value="${instrutor.codigo}"/>
                         <div class="row">
                             <div class="form-group col-12">
                               <label for="inputNomeInstrutor">Nome do Instrutor</label>

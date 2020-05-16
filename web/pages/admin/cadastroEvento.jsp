@@ -27,6 +27,7 @@
                         </div>
                     </c:if>
                     <c:if test="${evento}">
+                        <div type="hidden" id="inputCodigoEvento" name="inputCodigoEvento" value="${evento.codigo}"/>
                         <div class="row">
                             <div class="form-group col-12">
                               <label for="inputCodigoEvento">Titulo do Evento</label>
