@@ -1,11 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.eventcontroller.dal;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import com.eventcontrol.model.Evento;
+import com.eventcontrol.model.Instrutor;
 import com.eventcontrol.persistencia.Conexao;
 import com.eventcontrol.persistencia.DAOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,25 +19,24 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author ferii
+ * @author feriip3d
  */
-public class EventoDAL {
-    public EventoDAL()
-    {
-        
+public class InstrutorDAL {
+
+    public InstrutorDAL() {
     }
     
-    private Evento gerar(ResultSet rs) throws SQLException
+    private Instrutor gerar(ResultSet rs) throws SQLException
     {
-        return new Evento(rs.getInt("eve_codigo"), rs.getString("eve_nome"), 
-                rs.getDate("eve_inicio"), rs.getDate("eve_fim"));
+        return new Instrutor(rs.getInt("ins_codigo"), rs.getString("ins_nome"), 
+                rs.getString("ins_curriculo"));
     }
     
-    public Evento getByCodigo(int codigo)
+    public Instrutor getByCodigo(int codigo)
     {
         String sql = "SELECT "
                 + "*"
-                + "FROM evento "
+                + "FROM instrutor "
                 + "WHERE codigo = #1";
         
         sql = sql.replace("#1", "'"+ codigo +"'");
@@ -42,9 +46,9 @@ public class EventoDAL {
             {
                 try (ResultSet rs = st.executeQuery(sql)) {
                     if (rs.next()) {
-                        Evento evento = gerar(rs);
+                        Instrutor inst = gerar(rs);
                         con.close();
-                        return evento;
+                        return inst;
                     }
                 }
             }
@@ -58,22 +62,20 @@ public class EventoDAL {
         return null;
     }
     
-    public List<Evento> getByIniDate(String eval, String date)
+    public List<Instrutor> getAll()
     {
         String sql = "SELECT "
                 + "*"
-                + "FROM evento "
-                + "WHERE eve_ini #1 #2";
+                + "FROM instrutor ";
         
-        sql = sql.replace("#2", "'%"+ date +"%'");
-        List<Evento> eventos = new ArrayList<Evento>();
+        List<Instrutor> insts = new ArrayList<Instrutor>();
         try(Connection con = Conexao.abrir())
         {
             try (Statement st = con.createStatement())
             {
                 try (ResultSet rs = st.executeQuery(sql)) {
                     if (rs.next()) {
-                        eventos.add(gerar(rs));
+                        insts.add(gerar(rs));
                     }
                 }
             }
@@ -85,14 +87,13 @@ public class EventoDAL {
             throw new DAOException("Falha ao conectar-se ao banco de dados.");
         }
         
-        return eventos;
+        return insts;
     }
     
-    public void inserir(Evento novo)
+    public void inserir(Instrutor novo)
             throws DAOException {
-        String sql = "INSERT INTO evento (eve_nome, eve_ini, eve_fim) VALUES "
-                + "('" + novo.getNome() + "', '" + novo.getInicio() + "', "
-                + "'" + novo.getFim() + "')";
+        String sql = "INSERT INTO instrutor (nome, curriculo) VALUES "
+                + "('" + novo.getNome() + "', '" + novo.getCurriculo() + "')";
         try (Connection conn = Conexao.abrir()) {
             try (Statement st = conn.createStatement()) {
                 st.execute(sql);
@@ -105,4 +106,5 @@ public class EventoDAL {
             throw new DAOException("Falha abrindo banco de dados.");
         }
     }
+    
 }
