@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eventcontroller.dal;
+package com.eventcontrol.persistencia.dal;
 
 import com.eventcontrol.model.Admin;
 import com.eventcontrol.model.Aluno;

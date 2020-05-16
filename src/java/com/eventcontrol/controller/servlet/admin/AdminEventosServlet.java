@@ -8,7 +8,7 @@ package com.eventcontrol.controller.servlet.admin;
 import com.eventcontrol.model.Evento;
 import com.eventcontrol.util.AuthHelper;
 import com.eventcontrol.util.ConfigPage;
-import com.eventcontroller.dal.EventoDAL;
+import com.eventcontrol.persistencia.dal.EventoDAL;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,9 +36,40 @@ public class AdminEventosServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        AuthHelper auth = new AuthHelper(request.getSession());
+        if(auth.isAdminLoggedIn())
+        {
+            String error = "";
+            if(request.getMethod().equals("DELETE"))
+            {
+                String btn_remover = (String)request.getParameter("btnRemover");
+                
+                if(btn_remover != null && !btn_remover.isEmpty())
+                {
+                    EventoDAL edal = new EventoDAL();
+                    String evt_id = (String)request.getParameter("evt_id");
+                    if(evt_id != null && !evt_id.isEmpty())
+                    {
+                        try
+                        {
+                            int cod = Integer.parseInt(evt_id);
+                            edal.delete(cod);
+                        } catch(Exception e) {
+                            error = "Código inválido";
+                        }
+                    } else {
+                        error = "Código não informado";
+                    }
+                }
+            }
+
+            request.setAttribute("error", error);
             request.setAttribute("configTemplate", new ConfigPage("../admin/cadastroEvento.jsp","Evento"));
             request.getRequestDispatcher("/pages/template/templateAdministrador.jsp").forward(request, response); 
+        } else {
+            response.sendRedirect("/eventos/");
+            return;
+        }
         
     }
 

@@ -7,7 +7,7 @@ package com.eventcontrol.controller.servlet.admin;
 
 import com.eventcontrol.model.Evento;
 import com.eventcontrol.util.ConfigPage;
-import com.eventcontroller.dal.EventoDAL;
+import com.eventcontrol.persistencia.dal.EventoDAL;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

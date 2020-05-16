@@ -1,7 +1,7 @@
 package com.eventcontrol.controller.servlet.user;
 
 import com.eventcontrol.model.Aluno;
-import com.eventcontroller.dal.AlunoDAL;
+import com.eventcontrol.persistencia.dal.AlunoDAL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
