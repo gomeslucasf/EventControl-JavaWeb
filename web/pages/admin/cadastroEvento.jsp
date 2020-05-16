@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="evento" class="com.eventcontrol.controller.servlet.admin.AdminEventosServlet" scope="request"/> 
 <div class="p-3">
     <div class="panel bg-white">
         <div class="panel-heading text-center p-3">
@@ -7,21 +9,44 @@
         <div class="panel-body"> 
             <div class="col">
                 <form action="AdminEventoServlets.do" method="post">
+                    <c:if test="${not empty evento}">
+                        <div class="row">
+                            <div class="form-group col-12">
+                              <label for="inputCodigoEvento">Titulo do Evento</label>
+                              <input type="text" class="form-control" name="evt_titulo" id="inputCodigoEvento">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inputInicioEvento">Data de Inicio</label>
+                                <input type="date" class="form-control" name="evt_data_ini" id="inputInicioEvento">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inputFimEvento">Data de Encerramento</label>
+                                <input type="date" class="form-control" name="evt_data_fim" id="inputFimEvento">
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${evento}">
+                        <div class="row">
+                            <div class="form-group col-12">
+                              <label for="inputCodigoEvento">Titulo do Evento</label>
+                              <input type="text" class="form-control" name="evt_titulo" id="inputCodigoEvento" value="${evento.nome}">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inputInicioEvento">Data de Inicio</label>
+                                <input type="date" class="form-control" name="evt_data_ini" id="inputInicioEvento" value="${evento.inicio}">
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="inputFimEvento">Data de Encerramento</label>
+                                <input type="date" class="form-control" name="evt_data_fim" id="inputFimEvento" value="${evento.fim}">
+                            </div>
+                        </div>
+                    </c:if>
                     <div class="row">
-                        <div class="form-group col-12">
-                          <label for="inputCodigoEvento">Titulo do Evento</label>
-                          <input type="text" class="form-control" name="evt_titulo" id="inputCodigoEvento">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="inputInicioEvento">Data de Inicio</label>
-                            <input type="date" class="form-control" name="evt_data_ini" id="inputInicioEvento">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="inputFimEvento">Data de Encerramento</label>
-                            <input type="date" class="form-control" name="evt_data_fim" id="inputFimEvento">
+                        <div class="col align-items-end">
+                            <button type="submit" name="btnSubmit" value="cadastrar" class="btn btn-success">Confirmar</button>
+                            <button type="reset" name="btnCancelar" value="cadastrar" class="btn btn-danger">Cancelar</button>
                         </div>
                     </div>
-                    <button type="submit" name="bSubmit" value="cadastrar" class="btn btn-success">Confirmar</button>
                 </form>
             </div>
         </div>
