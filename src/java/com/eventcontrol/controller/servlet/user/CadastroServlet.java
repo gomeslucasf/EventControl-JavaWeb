@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferii
  */
-@WebServlet(name = "CadastroServlet", urlPatterns = {"/login/cadastro"})
+@WebServlet(name = "CadastroServlet", urlPatterns = {"/cadastro"})
 public class CadastroServlet extends HttpServlet {
 
     /**
@@ -32,6 +32,11 @@ public class CadastroServlet extends HttpServlet {
         
         String bSubmit = (String)request.getParameter("bSubmit");
         String erro = "";
+        
+        
+                request.setAttribute("configTemplate", new ConfigPage("../pages/usuario/cadastroCompletoUsuario","Finalizando o Cadastro"));
+                request.setAttribute("erro", erro);
+                request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
         
         if(bSubmit != null && !bSubmit.isEmpty())
         {
@@ -50,11 +55,14 @@ public class CadastroServlet extends HttpServlet {
                 novo.setSenha(u_passwd);
                 
                 adal.inserir(novo);
+                
+                request.setAttribute("configTemplate", new ConfigPage("../pages/usuario/cadastroCompletoUsuario","Finalizando o Cadastro"));
+                request.setAttribute("erro", erro);
+                request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
             }
         }
-        request.setAttribute("configTemplate", new ConfigPage("../pages/usuario/cadastroCompletoUsuario","Finalizando o Cadastro"));
         request.setAttribute("erro", erro);
-        request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/usuario/cadastroSimplesUsuario.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

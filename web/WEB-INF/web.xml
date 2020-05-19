@@ -5,6 +5,10 @@
             30
         </session-timeout>
     </session-config>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pages/erros/status404.jsp</location>
+    </error-page>
     <jsp-config>
     </jsp-config>
 </web-app>

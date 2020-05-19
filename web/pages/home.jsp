@@ -9,22 +9,13 @@
         <link rel="stylesheet" href="/eventos/css/bootstrap.min.css">
         <link rel="stylesheet" href="/eventos/css/theme.min.css">
         <style>
-            .header{
-                border-top: #228B22;
-            }
             body, html {
             height: 100%;
           }
 
-          * {
-            box-sizing: border-box;
-          }
-
         .bg-image {
             background-image:  url("/eventos/img/wolf.webp");
-           
-            filter: blur(8px);
-            -webkit-filter: blur(8px);
+            
 
             
             height: 100%;
@@ -82,7 +73,7 @@
                         <p class="px-lg-14 mb-4 lead">
                           O evento, que é aberto a toda a comunidade regional e de outros centros.<br />
                         </p>
-                        <a href="/eventos/login/cadastro" class="btn btn-success">Cadastrar</a>
+                        <a href="/eventos/usuario/cadastro" class="btn btn-success">Cadastrar</a>
                       </div>
                     </div>
                 </div>
