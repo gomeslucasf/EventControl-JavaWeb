@@ -1,7 +1,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="listaEventos" class="com.eventcontrol.controller.servlet.admin.AdminEventosListagemServlet"  scope="request"/>
 <div class="p-3">
     <div class="panel bg-white p-3">
         <div class="panel-heading text-center">
@@ -44,14 +43,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="evento" items="${listaEventos}">
+                    <c:forEach var="evento" items="${eventos}">
                         <tr>
                             <th scope="row">${evento.codigo}</th>
                             <td >${evento.nome}</td>
                             <td>${evento.inicio}</td>
                             <td>${evento.fim}</td>
                             <td>
-                                <form action="/eventos/admin/evento">
+                                <form action="/eventos/admin/evento" method="post">
                                     <button id="btnAlterar" name="btnAlterar" type="button" class="btn btn-warning text-white btn-sm">Alterar</button>
                                     <input type="hidden" value="${evento.codigo}" id="inputCodigoEvento" name="inputCodigoEvento">
                                     <button id="btnExcluir" name="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
@@ -63,7 +62,7 @@
             </table>
         </div>
         <div class="panel-footer">
-            <form  action="/eventos/admin/evento">
+            <form  action="/eventos/admin/evento" method="post">
                 <button id="btnNovoEvento" name="btnNovoEvento" type="button" class="btn btn-outline-success">Novo Evento</button>
             </form>
                     

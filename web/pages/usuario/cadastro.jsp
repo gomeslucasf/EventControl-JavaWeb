@@ -61,7 +61,7 @@
         <div class="bg-image"></div>
         <div class="bg-text">
             <div class="container p-2">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-md-6 ">
                         <div class="panel bg-white p-3" >
                             <div class="panel-heading p-3">

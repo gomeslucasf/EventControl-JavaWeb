@@ -54,7 +54,7 @@ public class AdminServlet extends HttpServlet {
                 {
                     if(usuario.getSenha().equals(a_passwd))
                     {
-                        request.getSession().setAttribute("ADMIN", usuario);
+                        request.getSession().setAttribute("admin", usuario);
                         response.sendRedirect("/eventos/admin/index");
                         return;
                     } else {

@@ -19,7 +19,7 @@ public class Conexao {
     
     private static final String URL = "jdbc:postgresql://localhost:5432/eventcontrol";
     private static final String USUARIO = "postgres";
-    private static final String SENHA = "postgres";
+    private static final String SENHA = "2323503";
     
     public static Connection abrir() {
         try {

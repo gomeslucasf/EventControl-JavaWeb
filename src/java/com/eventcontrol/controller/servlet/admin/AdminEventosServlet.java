@@ -98,7 +98,7 @@ public class AdminEventosServlet extends HttpServlet {
                                 {
                                     if(id_evento != null && !id_evento.isEmpty())
                                     {
-                                        evt.setCodigo(id_evento);
+                                        evt.setCodigo( Integer.parseInt(id_evento));
                                         edal.update(evt);
 
                                     } else {

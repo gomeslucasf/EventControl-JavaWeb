@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="/eventos/css/bootstrap.min.css">
         <link rel="stylesheet" href="/eventos/css/theme.min.css">
     </head>
-    
     <body style="background:#EAEAEA;">
         <div class="container">
             <div class="fixed-top">
@@ -20,21 +19,22 @@
                         <a class="navbar-brand " href="/eventos/">
                             <img src="/eventos/img/logoUnoesteBranco.png" width="200" height="44"/>
                         </a>
-                        <h5 class="text-white h4">Collapsed content</h5>
-                        <span class="text-muted">Toggleable via the navbar brand.</span>
+                        <h5 class="text-white h4">Seja bem vindo ${admin.nome}</h5>
+                        <span class="text-muted">Aqui esse é seu Perfil, Deseja Alterar <a href="cadastro">Click Aqui!</a></span>
                     </div>
                 </div>
                 <nav class="navbar navbar-dark bg-dark  justify-content-end ">
+                    
                     <button class="navbar-toggler border-0" title="Menu" type="button" data-toggle="collapse" data-target="#menuTop" aria-controls="menuTop" aria-expanded="false" aria-label="Toggle navigation">
-                        <a href="/eventos/admin/home">Home</a>
-                        <i><img src="/eventos/icon/avatarAdmin.ico" height="30" width="30" alt="Perfil" title="Avatar" /></i>
+                        
+                        <i><img src="/eventos/icon/avatarAdmin.ico" height="30" width="30" alt="Perfil" title="Meu Perfil" /></i>
                     </button>
                 </nav>
             </div>
             <div class="fixed-bottom">
                 <div class="collapse" id="menuBottom">
                   <div class="bg-dark p-4">
-                    <a class="navbar-brand p-3" href="/eventos/admin/home">
+                    <a class="navbar-brand p-3" href="/eventos/admin/index">
                         <img src="/eventos/img/logoUnoesteBranco.png" width="200" height="44"/>
                     </a>
                       <h5 class="text-white h4">
@@ -47,8 +47,12 @@
                 </div>
                 <nav class="navbar navbar-dark bg-dark justify-content-center ">
                     <button class="navbar-toggler border-0" title="Menu" type="button" data-toggle="collapse" data-target="#menuBottom" aria-controls="menuBottom" aria-expanded="false" aria-label="Toggle navigation">
-                        <i><img src="/eventos/icon/setaCimaAzul.ico" height="30" width="30" alt="Menu" title="Menu" /></i>
+                        <i><img src="/eventos/icon/1486506264-hamburger-list-menu-options-bars-stack_81469.ico" height="30" width="30" alt="Menu" title="Menu" /></i>
                     </button>
+                    <a href="/eventos/admin/index">
+                        <img src="/eventos/icon/1486506267-grid-home-menu-options-squares-table_81451.ico" height="30" width="30" alt="Dashboard" title="Dashboard" />
+                    </a>
+                    
                 </nav>
             </div>
             <div class="row p-3">

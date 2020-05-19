@@ -75,7 +75,7 @@ public class AdminInstrutorServlet extends HttpServlet {
                             
                             if(id_instrutor != null && !id_instrutor.isEmpty())
                             {
-                                inst.setCodigo(id_instrutor);
+                                inst.setCodigo(Integer.parseInt(id_instrutor));
                                 idal.update(inst);
                             }else{
                                 idal.inserir(inst);
