@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="configTemplate" class="com.eventcontrol.controller.servlet.DashboardUsuarioServlet"  scope="session"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +24,7 @@
                 </div>
                 <nav class="navbar navbar-dark bg-dark  justify-content-end ">
                     
-                    <button class="navbar-toggler border-0" title="Menu" type="button" data-toggle="collapse" data-target="#menuTop" aria-controls="menuTop" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler border-0"  type="button" data-toggle="collapse" data-target="#menuTop" aria-controls="menuTop" aria-expanded="false" aria-label="Toggle navigation">
                         
                         <i><img src="/eventos/icon/avatarAdmin.ico" height="30" width="30" alt="Perfil" title="Meu Perfil" /></i>
                     </button>

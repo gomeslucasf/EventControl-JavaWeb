@@ -8,7 +8,6 @@ package com.eventcontrol.controller.servlet.user;
 import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Gomes
  */
-@WebServlet(name = "DashboardUsuarioServlet", urlPatterns = {"/usuario/dashboard"})
-public class DashboardUsuarioServlet extends HttpServlet {
+@WebServlet(name = "UsuarioIndexServlet", urlPatterns = {"/usuario"})
+public class UsuarioIndexServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,7 +32,10 @@ public class DashboardUsuarioServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
+        
+        
+            request.setAttribute("configTemplate", new ConfigPage("../usuario/dashboard.jsp", "Tela inicial")); 
+            request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

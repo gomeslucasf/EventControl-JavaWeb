@@ -63,7 +63,7 @@
             <div class="container p-2">
                 <div class="row justify-content-center">
                     <div class="col-md-6 ">
-                        <div class="panel bg-white p-3" >
+                        <div class="panel bg-white-panel p-3" >
                             <div class="panel-heading p-3">
                                 <img src="/eventos/img/logo-fipp-440x172.png"/>
                                 <h1>Faça seu cadastro</h1>

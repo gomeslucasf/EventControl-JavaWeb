@@ -2,6 +2,7 @@ package com.eventcontrol.controller.servlet.user;
 
 import com.eventcontrol.model.Aluno;
 import com.eventcontrol.persistencia.dal.AlunoDAL;
+import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -51,9 +52,9 @@ public class CadastroServlet extends HttpServlet {
                 adal.inserir(novo);
             }
         }
-        
+        request.setAttribute("configTemplate", new ConfigPage("../pages/usuario/cadastroCompletoUsuario","Finalizando o Cadastro"));
         request.setAttribute("erro", erro);
-        request.getRequestDispatcher("/pages/usuario/cadastro.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
