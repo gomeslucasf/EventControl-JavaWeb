@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="/eventos/img/favicon-32x32.png" />
         <title>FIPP - Infoeste 2020 - Login</title>
-         <link rel="stylesheet" href="/eventos/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/eventos/css/bootstrap.min.css">
         <link rel="stylesheet" href="/eventos/css/theme.min.css">
         <style>
             body, html {

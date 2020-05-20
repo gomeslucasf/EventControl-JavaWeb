@@ -20,7 +20,7 @@
 
              
             .bg-image {
-                background-image:url("/eventos/img/alone-man-person-sadness-236151.jpg");
+                background-image:url("/eventos/img/robo.jpg");
 
 
                 height: 100%;

@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.eventcontrol.controller.servlet.user;
 
 import com.eventcontrol.model.Aluno;
@@ -13,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ferii
+ * @author Gomes
  */
-@WebServlet(name = "CadastroServlet", urlPatterns = {"/cadastro"})
-public class CadastroServlet extends HttpServlet {
+@WebServlet(name = "CadastroUsuarioServlets", urlPatterns = {"/CadastroUsuarioServlets"})
+public class CadastroUsuarioServlets extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,11 +37,6 @@ public class CadastroServlet extends HttpServlet {
         
         String bSubmit = (String)request.getParameter("bSubmit");
         String erro = "";
-        
-        
-                request.setAttribute("configTemplate", new ConfigPage("../pages/usuario/cadastroCompletoUsuario","Finalizando o Cadastro"));
-                request.setAttribute("erro", erro);
-                request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
         
         if(bSubmit != null && !bSubmit.isEmpty())
         {
