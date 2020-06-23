@@ -20,10 +20,10 @@
 
              
             .bg-image {
-                background-image:url("/eventos/img/robo.jpg");
+                background-image:url("/eventos/img/emcontrucao.png");
 
 
-                height: 100%;
+                height: 90%;
 
                 background-position: center;
                 background-repeat: no-repeat;
@@ -39,18 +39,16 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
                 z-index: 2;
+                transform: translate(-50%, -50%);
                 width: 100%;
                 height: 100%;
                 text-align: center;
               }
-            .bg-white-panel{
-                background-color: rgba(255,255,255, 0.3);
-              }
         </style>
     </head>
     <body>
+        
         <div class="bg-image"></div>
         <div class="bg-text p-3">
             <div class="container p-3">
@@ -58,20 +56,15 @@
                     <div class="col p-3">
                         <div class="row justify-content-md-center p-3">
                             <div class="col-md-6 align-items-center">
-                                <div class="panel bg-white-panel p-3" >
-                                    <div class="panel-heading p-3">
-                                        
-                                        <img src="/eventos/img/error_icon_124063.png"/>
-                                        <h1 class="p-2">Pagina Não encontrada </h1>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="row justify-content-md-center">
-                                            <h2>Me desculpe, estamos buscando sempre melhorar a cada dia!</h2>
+                                
+                                    <a href="/eventos" class="text-danger ">
+                                        <div class="btn btn-danger">
+
+                                                Clique aqui para voltar a pagina principal...
+
                                         </div>
-                                        <a href="/eventos">
-                                            Clique aqui para voltar a pagina principal...
-                                        </a>
-                                    </div>
+                                     </a>
+                                         
                                 </div>
                             </div>
                         </div>

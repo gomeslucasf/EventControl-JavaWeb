@@ -1,64 +1,111 @@
+<div class="row">
+    
+    <div class="col">
+        <div id="carouselExampleSlidesOnly" class="carousel slide shadow-lg" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/eventos/carrossel/1.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="text-white">INFOESTE 2020 </h2>
+                        <p>33ª Semana de Computação e Informática da FIPP/Unoeste</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/eventos/carrossel/2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="text-white">Palestras</h2>
+                        <p>As melhores palestras com os temas atuais</p>
+                        <p>Java Web, Postgress  e Bootstrap</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/eventos/carrossel/3.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="text-white">Eventos</h2>
+                        <p>Os melhores eventos para participar nessa semana</p>
+                        <p>Festa Linux, Maratona de Programação, Hackthons, entre outros.</p>
+                    </div>
+                </div><div class="carousel-item">
+                    <img src="/eventos/carrossel/4.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="text-white">O que esta esperando? </h2>
+                        <p>Comece agora a se cadastrar nos eventos da melhor semana de informática da região</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
 
-<div class="p-3">
-    <div class="row">
-        <div class="col">
-            <div class="panel bg-white">
-                <div class="panel-heading text-center"> 
-                    <h2>Evento</h2> 
-                </div>
-                <div class="panel-body">
-                    <div class="col p-3">
-                        <img class="rounded mx-auto d-block" src="/eventos/img/pexels-photo-207691.jpeg"  widh="180" height="180"/>
-                        <label class="p-3"><p>Entre em um Evento</p></label>
-                    </div>
-                </div>
-                <div class="panel-footer ">
-                    <div class="col">
-                        <ul>
-                            <li><h5> <a href="/eventos/usuario/evento">Listagem de Eventos</a> </h5></li>
-                            <li><h5> <a href="/eventos/usuario/evento/escolha">Escolher Novo Evento</a> </h5></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="panel bg-white">
-                <div class="panel-heading text-center"> <h2>Instrutor</h2></div>
-                <div class="panel-body">
-                    <div class="col p-3">
-                        <img class="rounded mx-auto d-block" src="/eventos/img/pexels-photo-3184328.jpeg" widh="180" height="180"/>
-                        <label class="p-3"><p>Conheça nossos instrutores</p></label>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <div class="col">
-                        <ul>
-                            <li><h5> <a href="/eventos/usuario/instrutor">Listagem de Instrutor</a> </h5></li>
-                            <li><h5> <a href="/eventos/usuario/instrutor/duvidas">Tire Duvidas Com Instrutor</a> </h5></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="panel bg-white">
-                <div class="panel-heading text-center "> <h2>Minha Agenda</h2></div>
-                <div class="panel-body">
-                    <div class="col p-3">
-                        <img class="rounded mx-auto d-block" src="/eventos/img/agenda.png" widh="180" height="180"/>
-                        <label class="p-3"><p>Aqui você vai encontrar todos os Eventos escolhidos</p></label>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <div class="col">
-                        <ul>
-                            <li><h5> <a href="/eventos/usuario/meusEventos">Listagem de Eventos Escolhidos</a> </h5></li>
-                            <li><h5> <a href="/eventos/cadastro">n sei o que colocar aqui ainda</a> </h5></li>
+
+<div class="row mt-3">
+    
+    <div class="col-6">
+        <div class="panel bg-dark shadow-lg rounded">
+            <div class="panel-heading pt-3 text-center "> <h3 class="text-white">Ultimas vagas</h3></div>
+            <div class="panel-body">
+                <div class="col pt-3">
+                    <div class="pb-3">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Cras justo odio
+                              <span class="badge badge-success badge-pill">2</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Dapibus ac facilisis in
+                              <span class="badge badge-success badge-pill">2</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Morbi leo risus
+                              <span class="badge badge-success badge-pill">3</span>
+                            </li>
+                             <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Morbi leo risus
+                              <span class="badge badge-success badge-pill">3</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div class="col-6">
+        <div class="panel bg-dark shadow-lg rounded">
+            <div class="panel-heading pt-3 text-center "> <h3 class="text-white">Meus Eventos Hoje</h3></div>
+            <div class="panel-body ">
+                <div class="col pt-3">
+                    <div class="pb-3">
+                        <table class="table table-striped bg-white rounded ">
+                        <thead>
+                            <tr>
+                              <th scope="col">Descrição</th>
+                              <th scope="col">Horario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              <td>Java Web</td>
+                              <td>8:00</td>
+                            </tr>
+                            <tr>
+                              <td>Postgress</td>
+                              <td>14:00</td>
+                            </tr>
+                            <tr>
+                              <td>Chopada</td>
+                              <td>20:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>
+
+
+

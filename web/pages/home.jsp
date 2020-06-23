@@ -73,7 +73,7 @@
                         <p class="px-lg-14 mb-4 lead">
                           O evento, que é aberto a toda a comunidade regional e de outros centros.<br />
                         </p>
-                        <a href="/eventos/usuario/cadastro" class="btn btn-success">Cadastrar</a>
+                        <a href="/eventos/usuario/CadastroUsuarioServlets" class="btn btn-success">Cadastrar</a>
                       </div>
                     </div>
                 </div>

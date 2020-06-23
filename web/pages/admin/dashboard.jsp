@@ -26,7 +26,7 @@
                     <div class="col">
                         <div>
                             <img src="/eventos/img/pexels-photo-3184328.jpeg" widh="180" height="180"/>
-                            <label><p>Grafico sobre os alunos</p></label>
+                            <p>Grafico sobre os alunos asdfasdfasdfasdfasd</p>
                         </div>
                     </div>
                 </div>

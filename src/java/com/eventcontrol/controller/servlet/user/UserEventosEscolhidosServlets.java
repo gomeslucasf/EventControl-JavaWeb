@@ -5,8 +5,6 @@
  */
 package com.eventcontrol.controller.servlet.user;
 
-import com.eventcontrol.model.Aluno;
-import com.eventcontrol.persistencia.dal.AlunoDAL;
 import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Gomes
  */
-@WebServlet(name = "CadastroUsuarioServlets", urlPatterns = {"/usuario/CadastroUsuarioServlets"})
-public class CadastroUsuarioServlets extends HttpServlet {
+@WebServlet(name = "UserEventosEscolhidosServlets", urlPatterns = {"/usuario/agenda"})
+public class UserEventosEscolhidosServlets extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,35 +32,8 @@ public class CadastroUsuarioServlets extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String bSubmit = (String)request.getParameter("bSubmit");
-        String erro = "";
-        
-        if(bSubmit != null && !bSubmit.isEmpty())
-        {
-            String u_email = (String)request.getParameter("u_email");
-            String u_passwd = (String)request.getParameter("u_password");
-            
-            AlunoDAL adal = new AlunoDAL();
-            Aluno usuario = adal.getByEmail(u_email);
-            
-            if(usuario != null)
-            {
-                erro = "Usuario existente";
-            } else {
-                Aluno novo = new Aluno();
-                novo.setEmail(u_email);
-                novo.setSenha(u_passwd);
-                
-                adal.inserir(novo);
-                
-                request.setAttribute("configTemplate", new ConfigPage("../pages/usuario/cadastroCompletoUsuario","Finalizando o Cadastro"));
-                request.setAttribute("erro", erro);
-                request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
-            }
-        }
-        request.setAttribute("erro", erro);
-        request.getRequestDispatcher("/pages/usuario/cadastroSimplesUsuario.jsp").forward(request, response);
+        request.setAttribute("configTemplate", new ConfigPage("../usuario/listaMeusEventos.jsp","Meus Eventos"));
+        request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
