@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <div class="row">
     
     <div class="col">
@@ -7,7 +10,7 @@
                     <img src="/eventos/carrossel/1.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h2 class="text-white">INFOESTE 2020 </h2>
-                        <p>33ª Semana de Computação e Informática da FIPP/Unoeste</p>
+                        <p>33Âª Semana de ComputaÃ§Ã£o e InformÃ¡tica da FIPP/Unoeste</p>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -23,13 +26,13 @@
                     <div class="carousel-caption d-none d-md-block">
                         <h2 class="text-white">Eventos</h2>
                         <p>Os melhores eventos para participar nessa semana</p>
-                        <p>Festa Linux, Maratona de Programação, Hackthons, entre outros.</p>
+                        <p>Festa Linux, Maratona de ProgramaÃ§Ã£o, Hackthons, entre outros.</p>
                     </div>
                 </div><div class="carousel-item">
                     <img src="/eventos/carrossel/4.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h2 class="text-white">O que esta esperando? </h2>
-                        <p>Comece agora a se cadastrar nos eventos da melhor semana de informática da região</p>
+                        <p>Comece agora a se cadastrar nos eventos da melhor semana de informÃ¡tica da regiÃ£o</p>
                     </div>
                 </div>
             </div>
@@ -48,22 +51,12 @@
                 <div class="col pt-3">
                     <div class="pb-3">
                         <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Cras justo odio
-                              <span class="badge badge-success badge-pill">2</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Dapibus ac facilisis in
-                              <span class="badge badge-success badge-pill">2</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Morbi leo risus
-                              <span class="badge badge-success badge-pill">3</span>
-                            </li>
-                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Morbi leo risus
-                              <span class="badge badge-success badge-pill">3</span>
-                            </li>
+                            <c:forEach var="evento" items="${listEvent}" >
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    ${evento.nome}
+                                  <span class="badge badge-success badge-pill">2</span>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>
@@ -80,7 +73,7 @@
                         <table class="table table-striped bg-white rounded ">
                         <thead>
                             <tr>
-                              <th scope="col">Descrição</th>
+                              <th scope="col">DescriÃ§Ã£o</th>
                               <th scope="col">Horario</th>
                             </tr>
                         </thead>

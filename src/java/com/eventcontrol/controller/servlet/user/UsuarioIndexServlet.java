@@ -5,14 +5,19 @@
  */
 package com.eventcontrol.controller.servlet.user;
 
+import com.eventcontrol.model.Evento;
 import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
+
 
 /**
  *
@@ -33,7 +38,28 @@ public class UsuarioIndexServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
+            // Lista Eventos com Ultimas vagas
+            // Lista Dos meus eventos no dia 
+            ArrayList<Evento> listEvent = new ArrayList<Evento>();
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date fim = null;
+            Date inicio = null;
+            try{
+                fim = new Date(sdf.parse("2020-07-03").getTime());
+                inicio = new Date(sdf.parse("2020-06-03").getTime());
+            }catch(Exception e)
+            {
+                
+            }
+            listEvent.add(new Evento ("Javita uebis", inicio, fim));
+            listEvent.add(new Evento ("LP", inicio, fim));
+            listEvent.add(new Evento ("KALI LINUX", inicio, fim));
+            
+            listEvent.add(new Evento ("Hackingo", inicio, fim));
+            
+            request.setAttribute("listEvent", listEvent);
+            
             request.setAttribute("configTemplate", new ConfigPage("../usuario/dashboard.jsp", "Tela inicial")); 
             request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
     }
