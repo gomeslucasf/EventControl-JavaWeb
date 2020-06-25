@@ -15,18 +15,21 @@ public class Palestra {
     
     private int codigo;
     private int codigoEvento;
-    private String pal_nome;
+    private String nome;
     private int numeroMaxIncritos;
+    private String descricao;
     private Date data;
 
-    public Palestra(int codigo, int codigoEvento, String pal_nome, int numeroMaxIncritos, Date data) {
+    public Palestra(int codigo, int codigoEvento, String pal_nome, int numeroMaxIncritos, String descricao, Date data) {
         this.codigo = codigo;
         this.codigoEvento = codigoEvento;
-        this.pal_nome = pal_nome;
+        this.nome = pal_nome;
         this.numeroMaxIncritos = numeroMaxIncritos;
+        this.descricao = descricao;
         this.data = data;
     }
 
+   
     public int getCodigo() {
         return codigo;
     }
@@ -43,12 +46,12 @@ public class Palestra {
         this.codigoEvento = codigoEvento;
     }
 
-    public String getPal_nome() {
-        return pal_nome;
+    public String getNome() {
+        return nome;
     }
 
-    public void setPal_nome(String pal_nome) {
-        this.pal_nome = pal_nome;
+    public void setNome(String pal_nome) {
+        this.nome = pal_nome;
     }
 
     public int getNumeroMaxIncritos() {
@@ -65,6 +68,14 @@ public class Palestra {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
     
     

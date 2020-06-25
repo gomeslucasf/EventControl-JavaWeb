@@ -51,12 +51,13 @@
                 <div class="col pt-3">
                     <div class="pb-3">
                         <ul class="list-group">
-                            <c:forEach var="palestra" items="${listEvent}" >
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    ${evento.nome}
-                                    <span class="badge badge-success badge-pill">
-                                        ${}
-                                    </span>
+                            <c:forEach var="palestra" items="${listaPalestrasUltimasVagas}" >
+                                <li class="list-group-item d-flex text-center">
+                                    <h4>
+                                        
+                                    ${palestra.nome}
+                                    </h4>
+                                    
                                 </li>
                             </c:forEach>
                         </ul>
@@ -68,27 +69,22 @@
     
     <div class="col-6">
         <div class="panel bg-dark shadow-lg rounded">
-            <div class="panel-heading pt-3 text-center "> <h3 class="text-white">Meus Eventos Hoje</h3></div>
+            <div class="panel-heading pt-3 text-center "> <h3 class="text-white">Evento Hoje</h3></div>
             <div class="panel-body ">
                 <div class="col pt-3">
-                    <div class="pb-3">
-                        <table class="table table-striped bg-white rounded ">
-                        <thead>
-                            <tr>
-                              <th scope="col">Descrição</th>
-                              <th scope="col">Horario</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <c:forEach var="evento" items="${listEvent}" >
-                            <tr>
-                              <td>Java Web</td>
-                              <td>8:00</td>
-                            </tr>
-                            <c:
-                        </tbody>
-                    </table>
+                    <div class="pb-3 ">
+                        
+                        <c:if test="${palestraHoje}" >
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="/eventos/docentes/1.jpg" width="100" height="180" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">${palestraHoje.nome}</h5>
+                                  <p class="card-text">${palestraHoje.descricao}</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </c:if>
+                        
                     </div>
                 </div>
             </div>

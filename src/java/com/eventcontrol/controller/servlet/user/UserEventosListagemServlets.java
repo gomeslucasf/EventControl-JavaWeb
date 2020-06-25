@@ -6,6 +6,7 @@
 package com.eventcontrol.controller.servlet.user;
 
 import com.eventcontrol.model.Evento;
+import com.eventcontrol.model.Palestra;
 import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,7 +39,7 @@ public class UserEventosListagemServlets extends HttpServlet {
             throws ServletException, IOException {
             
         
-        ArrayList<Evento> listEvent = new ArrayList<Evento>();
+        ArrayList<Palestra> listaPalestrasUltimasVagas = new ArrayList<Palestra>();
             
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date fim = null;
@@ -50,14 +51,14 @@ public class UserEventosListagemServlets extends HttpServlet {
             {
                 
             }
-            listEvent.add(new Evento ("Javita uebis", inicio, fim));
-            listEvent.add(new Evento ("LP", inicio, fim));
-            listEvent.add(new Evento ("KALI LINUX", inicio, fim));
+            listaPalestrasUltimasVagas.add(new Palestra (0,1,"Javita uebis", 20,"Essa palestra e sobre java",inicio));
+            listaPalestrasUltimasVagas.add(new Palestra (0,1,"Javita uebis 2 ", 20,"Essa palestra e sobre java",inicio));
+            listaPalestrasUltimasVagas.add(new Palestra (0,1,"Javita uebis 3 ", 20,"Essa palestra e sobre java",inicio));
             
-            listEvent.add(new Evento ("Hackingo", inicio, fim));
             
-            request.setAttribute("listEvent", listEvent);
-        request.setAttribute("configTemplate", new ConfigPage("../usuario/listaEscolherEventos.jsp","Lista de Eventos"));
+            request.setAttribute("listaPalestrasUltimasVagas", listaPalestrasUltimasVagas);
+            request.setAttribute("palestraHoje", new Palestra (0,1,"Javita uebis", 20,"Essa palestra e sobre java",inicio));
+            request.setAttribute("configTemplate", new ConfigPage("../usuario/listaEscolherEventos.jsp","Lista de Eventos"));
         request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
     }
 
