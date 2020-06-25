@@ -7,12 +7,14 @@ package com.eventcontrol.controller.servlet.user;
 
 import com.eventcontrol.model.Evento;
 import com.eventcontrol.model.Palestra;
+import com.eventcontrol.persistencia.dal.PalestraDAL;
 import com.eventcontrol.util.ConfigPage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,8 +40,16 @@ public class UserEventosListagemServlets extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
+        String aluno_cod_str = (String)request.getSession().getAttribute("USER");
+        int alu_cod;
+        try {
+            alu_cod = Integer.parseInt(aluno_cod_str);
+        } catch (Exception e) {
+            alu_cod = 1;
+        }
         
-        ArrayList<Palestra> listaPalestrasUltimasVagas = new ArrayList<Palestra>();
+        PalestraDAL p_dal = new PalestraDAL();
+        List<Palestra> listaPalestrasUltimasVagas = p_dal.getByAluno(alu_cod);
             
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date fim = null;
