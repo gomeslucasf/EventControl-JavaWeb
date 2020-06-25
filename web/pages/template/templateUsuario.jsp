@@ -16,19 +16,18 @@
         <div class="relative-top">
             <div class="collapse" id="menuTop">
                 <div class="bg-dark p-4">
-                    <a class="navbar-brand " href="/eventos/">
+                    <a class="navbar-brand " href="/eventos/usuario">
                         <img src="/eventos/img/logoUnoesteBranco.png" width="200" height="44"/>
                     </a>
                     <h5 class="text-white h4 pt-3 pb-3">Seja bem vindo ao seu menu Usuario</h5>
                     <p><a href="/eventos/usuario/lista">Escolher Eventos</a></p>
                     <p><a href="/eventos/usuario/agenda">Meus Eventos</a></p>
-                    <a href="cadastro">Meu Perfil</a>
                 </div>
             </div>
             <nav class="navbar navbar-dark bg-dark  ">
                 <div clas="w-50">
                     <div class="container ml-5">
-                        <a class="navbar-brand " href="/eventos/">                           
+                        <a class="navbar-brand " href="/eventos/usuario">                           
                             <img src="/eventos/img/logoUnoesteBranco.png" width="100" height="22"/>    
                         </a>
                     </div>
@@ -59,7 +58,9 @@
                 <div class="container">
                      <div class="row">
                         <div class="col">
-                            Rodapé
+                            Rodapé/Opcional
+                            
+                            
                         </div>
                     </div>
                 </div>

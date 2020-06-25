@@ -5,7 +5,9 @@
  */
 package com.eventcontrol.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -62,8 +64,9 @@ public class Palestra {
         this.numeroMaxIncritos = numeroMaxIncritos;
     }
 
-    public Date getData() {
-        return data;
+    public String getData() {
+        
+        return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()). format(data);
     }
 
     public void setData(Date data) {

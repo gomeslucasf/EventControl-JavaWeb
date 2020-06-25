@@ -39,25 +39,27 @@ public class UserEventosListagemServlets extends HttpServlet {
             throws ServletException, IOException {
             
         
-        ArrayList<Palestra> listaPalestrasUltimasVagas = new ArrayList<Palestra>();
+        ArrayList<Palestra> listaPalestras = new ArrayList<Palestra>();
             
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date fim = null;
             Date inicio = null;
             try{
-                fim = new Date(sdf.parse("2020-07-03").getTime());
+                fim = new Date(sdf.parse("2020-06-06").getTime());
                 inicio = new Date(sdf.parse("2020-06-03").getTime());
             }catch(Exception e)
             {
                 
             }
-            listaPalestrasUltimasVagas.add(new Palestra (0,1,"Javita uebis", 20,"Essa palestra e sobre java",inicio));
-            listaPalestrasUltimasVagas.add(new Palestra (0,1,"Javita uebis 2 ", 20,"Essa palestra e sobre java",inicio));
-            listaPalestrasUltimasVagas.add(new Palestra (0,1,"Javita uebis 3 ", 20,"Essa palestra e sobre java",inicio));
+            Evento infoeste = new Evento(0,"Infoeste 2020",inicio,fim);
+            
+            listaPalestras.add(new Palestra (0,1,"Javita uebis", 20,"Essa palestra e sobre java",inicio));
+            listaPalestras.add(new Palestra (0,1,"Javita uebis 2 ", 20,"Essa palestra e sobre java",inicio));
+            listaPalestras.add(new Palestra (0,1,"Javita uebis 3 ", 20,"Essa palestra e sobre java",inicio));
             
             
-            request.setAttribute("listaPalestrasUltimasVagas", listaPalestrasUltimasVagas);
-            request.setAttribute("palestraHoje", new Palestra (0,1,"Javita uebis", 20,"Essa palestra e sobre java",inicio));
+            request.setAttribute("listaPalestras", listaPalestras);
+            request.setAttribute("evento", infoeste);
             request.setAttribute("configTemplate", new ConfigPage("../usuario/listaEscolherEventos.jsp","Lista de Eventos"));
         request.getRequestDispatcher("/pages/template/templateUsuario.jsp").forward(request, response);
     }

@@ -1,5 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html   >
+
+<!-- 
+
+    Lucas Gomes     261810120
+    Felipe Geroldi  261811053
+-->
 <html>
     <head>
         <link rel="shortcut icon" href="/eventos/img/favicon-32x32.png" />
