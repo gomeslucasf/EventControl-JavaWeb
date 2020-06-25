@@ -51,10 +51,12 @@
                 <div class="col pt-3">
                     <div class="pb-3">
                         <ul class="list-group">
-                            <c:forEach var="evento" items="${listEvent}" >
+                            <c:forEach var="palestra" items="${listEvent}" >
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     ${evento.nome}
-                                  <span class="badge badge-success badge-pill">2</span>
+                                    <span class="badge badge-success badge-pill">
+                                        ${}
+                                    </span>
                                 </li>
                             </c:forEach>
                         </ul>
@@ -78,18 +80,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
+                            <c:forEach var="evento" items="${listEvent}" >
                             <tr>
                               <td>Java Web</td>
                               <td>8:00</td>
                             </tr>
-                            <tr>
-                              <td>Postgress</td>
-                              <td>14:00</td>
-                            </tr>
-                            <tr>
-                              <td>Chopada</td>
-                              <td>20:00</td>
-                            </tr>
+                            <c:
                         </tbody>
                     </table>
                     </div>

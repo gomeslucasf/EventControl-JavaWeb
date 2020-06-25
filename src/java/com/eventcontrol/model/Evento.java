@@ -4,6 +4,7 @@ package com.eventcontrol.model;
 import java.time.LocalDate;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Evento {
@@ -50,7 +51,7 @@ public class Evento {
     }
 
     public String getInicio() {
-        return inicio.toString();
+        return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()). format(inicio);
     }
 
     public void setInicio(Date inicio) {
@@ -58,7 +59,7 @@ public class Evento {
     }
     
     public void setInicio(String inicio) throws Exception {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
         this.inicio = new Date(sdf.parse(inicio).getTime());
     }
 

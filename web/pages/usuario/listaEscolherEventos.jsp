@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <div class="row mt-3">
     
     <div class="col text-center">
@@ -18,24 +21,104 @@
                 <div class="tab-content pt-3" id="nav-tabContent">
                     
                     <div class="tab-pane fade show active" id="nav-2406eventos" role="tabpanel" aria-labelledby="nav-2406eventos-tab">
+                        <div class="w-100">
+                            <form action="/eventos/usuario/lista" method="get">
+                                <div class="form-row justify-items-center pl-4">
+                                        <div class="col-3 p-2 ">
+                                          <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                          <select class="custom-select mr-sm-2 border-0" id="inlineFormCustomSelect">
+                                            <option selected value="0">Pesquisar por...</option>
+                                            <option value="1">Descri√ß√£o</option>
+                                            <option value="2">Tema</option>
+                                          </select>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                          <div class="custom-control custom-input">
+                                              <input type="text" class="w-100 border-0" placeholder="Digite aqui...">
+                                          </div>
+                                        </div>
+                                        <div class="col-2 p-2">
+                                          <button type="submit" class="btn btn-outline-secondary ">Buscar</button>
+                                        </div>
+                                </div>
+                            </form>
+                        </div>
                         
-                        <nav>
-                            <div class="nav nav-tabs bg-light" id="nav-tab" role="tablist">
-                              <a class="nav-item nav-link active " id="nav-2406home-tab" data-toggle="tab" href="#nav-2406home" role="tab" aria-controls="nav-2406home" aria-selected="true">Manh„</a>
-                              <a class="nav-item nav-link" id="nav-2406profile-tab" data-toggle="tab" href="#nav-2406profile" role="tab" aria-controls="nav-2406profile" aria-selected="false">Tarde</a>
-                              <a class="nav-item nav-link" id="nav-2406contact-tab" data-toggle="tab" href="#nav-2406contact" role="tab" aria-controls="nav-2406contact" aria-selected="false">Noite</a>
+                        <form action="/eventos/usuario/lista" method="get">
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Descri√ß√£o</th>
+                                    <th scope="col">Inicio</th>
+                                    <th scope="col">Encerramento</th>
+                                    <th scope="col">Instrutor</th>
+                                    <th scope="col">Escolha o curso</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="evento" items="${listEvent}">
+                                        <tr>
+                                            <th scope="row">${evento.codigo}</th>
+                                            <td>${evento.nome}</td>
+                                            <td>${evento.inicio}</td>
+                                            <td>
+                                                ${evento.fim}
+                                            </td>
+                                            <td>
+
+                                                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">
+                                                    <div class="text-dark">
+                                                        AGLAE PEREIRA ZAUPA
+                                                    </div>
+                                                </button>
+
+                                                  <!-- Modal -->
+                                                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h5 class="modal-title" id="exampleModalLabel">AGLAE PEREIRA ZAUPA</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img src="/eventos/docentes/1.jpg" width="100" height="120"/>
+                                                            
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-group justify-content-center">
+                                                    <div class="input-group-prepend">
+                                                      <div class="input-group-text align-content-center bg-transparent border-0">
+                                                        <input type="radio" name="codigoEventoEscolhido" id="inputCodigoEscolhido" value="${evento.codigo}">
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
+
+                                </tbody>
+                            </table>
+                            <div class="w-100 pb-3">
+                                <button type="submit" id="btnConfirmarCurso" class="btn btn-success">Confirmar Curso</button>
                             </div>
-                        </nav>
-                        <div class="tab-content pt-3" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-2406home" role="tabpanel" aria-labelledby="nav-2406home-tab">
-                                
-                                -> marcaÁ„o provisoria manha - 24/06
-                                
-                                <table class="table table-striped">
+                        </form>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="nav-2506eventos" role="tabpanel" aria-labelledby="nav-2506eventos-tab">
+                        
+                     <table class="table table-striped">
                                     <thead>
                                       <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">DescriÁ„o</th>
+                                        <th scope="col">Descri√ß√£o</th>
                                         <th scope="col">Inicio</th>
                                         <th scope="col">Encerramento</th>
                                         <th scope="col">Escolha o curso</th>
@@ -92,59 +175,71 @@
                                 <div class="w-100 pb-3">
                                     <button type="button" class="btn btn-success">Confirmar</button>
                                 </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-2406profile" role="tabpanel" aria-labelledby="nav-2406profile-tab">
-                                tarde - 24/06
-                            </div>
-                            <div class="tab-pane fade" id="nav-2406contact" role="tabpanel" aria-labelledby="nav-2406contact-tab">
-                                noite - 24/06
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="tab-pane fade" id="nav-2506eventos" role="tabpanel" aria-labelledby="nav-2506eventos-tab">
-                        
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-2506home-tab" data-toggle="tab" href="#nav-2506home" role="tab" aria-controls="nav-2506home" aria-selected="true">Manh„</a>
-                                <a class="nav-item nav-link" id="nav-2506profile-tab" data-toggle="tab" href="#nav-2506profile" role="tab" aria-controls="nav-2506profile" aria-selected="false">Tarde</a>
-                                <a class="nav-item nav-link" id="nav-2506contact-tab" data-toggle="tab" href="#nav-2506contact" role="tab" aria-controls="nav-2506contact" aria-selected="false">Noite</a>
-                            </div>
-                        </nav>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-2506home" role="tabpanel" aria-labelledby="nav-2506home-tab">
-                                manha - 25/06
-                            </div>
-                            <div class="tab-pane fade" id="nav-2506profile" role="tabpanel" aria-labelledby="nav-2506profile-tab">
-                                tarde - 25/06
-                            </div>
-                            <div class="tab-pane fade" id="nav-2506contact" role="tabpanel" aria-labelledby="nav-2506contact-tab">
-                                noite - 25/06
-                            </div>
-                        </div>
                         
                     </div>
                     
                     <div class="tab-pane fade show " id="nav-2606eventos" role="tabpanel" aria-labelledby="nav-2606eventos-tab">
                         
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-2606home-tab" data-toggle="tab" href="#nav-2606home" role="tab" aria-controls="nav-2606home" aria-selected="true">Manh„</a>
-                                <a class="nav-item nav-link" id="nav-2606profile-tab" data-toggle="tab" href="#nav-2606profile" role="tab" aria-controls="nav-2606profile" aria-selected="false">Tarde</a>
-                                <a class="nav-item nav-link" id="nav-2606contact-tab" data-toggle="tab" href="#nav-2606contact" role="tab" aria-controls="nav-2606contact" aria-selected="false">Noite</a>
-                            </div>
-                        </nav>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-2606home" role="tabpanel" aria-labelledby="nav-2606home-tab">
-                                manha - 26/06
-                            </div>
-                            <div class="tab-pane fade" id="nav-2606profile" role="tabpanel" aria-labelledby="nav-2606profile-tab">
-                                tarde - 26/06
-                            </div>
-                            <div class="tab-pane fade" id="nav-2606contact" role="tabpanel" aria-labelledby="nav-2606contact-tab">
-                                noite - 26/06
-                            </div>
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Descri√ß√£o</th>
+                                <th scope="col">Inicio</th>
+                                <th scope="col">Encerramento</th>
+                                <th scope="col">Escolha o curso</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <div class="input-group justify-content-center">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text align-content-center bg-transparent border-0">
+                                            <input type="radio" name="evento">
+                                          </div>
+                                        </div>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <div class="input-group justify-content-center">
+                                        <div class="input-group-prepend ">
+                                          <div class="input-group-text align-content-center bg-transparent border-0">
+                                            <input type="radio" name="evento">
+                                          </div>
+                                        </div>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <div class="input-group justify-content-center">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text align-content-center bg-transparent border-0">
+                                            <input type="radio" name="evento">
+                                          </div>
+                                        </div>
+                                    </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        <div class="w-100 pb-3">
+                            <button type="button" class="btn btn-success">Confirmar</button>
                         </div>
                         
                     </div>
