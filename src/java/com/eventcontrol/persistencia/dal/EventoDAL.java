@@ -73,7 +73,7 @@ public class EventoDAL {
             try (Statement st = con.createStatement())
             {
                 try (ResultSet rs = st.executeQuery(sql)) {
-                    if (rs.next()) {
+                    while (rs.next()) {
                         eventos.add(gerar(rs));
                     }
                 }

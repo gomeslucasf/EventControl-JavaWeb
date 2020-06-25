@@ -18,15 +18,15 @@ public class Palestra {
     private int codigo;
     private int codigoEvento;
     private String nome;
-    private int numeroMaxIncritos;
+    private int numeroMaxInscritos;
     private String descricao;
     private Date data;
 
-    public Palestra(int codigo, int codigoEvento, String pal_nome, int numeroMaxIncritos, String descricao, Date data) {
+    public Palestra(int codigo, int codigoEvento, String pal_nome, int numeroMaxInscritos, String descricao, Date data) {
         this.codigo = codigo;
         this.codigoEvento = codigoEvento;
         this.nome = pal_nome;
-        this.numeroMaxIncritos = numeroMaxIncritos;
+        this.numeroMaxInscritos = numeroMaxInscritos;
         this.descricao = descricao;
         this.data = data;
     }
@@ -56,12 +56,12 @@ public class Palestra {
         this.nome = pal_nome;
     }
 
-    public int getNumeroMaxIncritos() {
-        return numeroMaxIncritos;
+    public int getNumeroMaxInscritos() {
+        return numeroMaxInscritos;
     }
 
-    public void setNumeroMaxIncritos(int numeroMaxIncritos) {
-        this.numeroMaxIncritos = numeroMaxIncritos;
+    public void setNumeroMaxInscritos(int numeroMaxInscritos) {
+        this.numeroMaxInscritos = numeroMaxInscritos;
     }
 
     public String getData() {
